@@ -30,23 +30,27 @@ export default function ArtPacks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="group relative rounded-xl border border-border-subtle/50 bg-bg-secondary p-5 hover:border-accent/30 transition-all duration-300 hover:-translate-y-1"
+              className="group relative rounded-xl border border-border-subtle/50 bg-bg-secondary overflow-hidden hover:border-accent/30 transition-all duration-300 hover:-translate-y-1"
             >
-              {/* Itch embed placeholder */}
-              <div className="aspect-video rounded-lg bg-bg-card border border-border-subtle/30 mb-4 flex items-center justify-center overflow-hidden">
-                <span className="text-4xl opacity-20 group-hover:opacity-40 transition-opacity">
-                  🎮
-                </span>
+              <div className="aspect-[3/4] sm:aspect-video overflow-hidden bg-bg-card">
+                <img
+                  src={pack.image}
+                  alt={pack.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
               </div>
 
-              <h3 className="text-base font-bold group-hover:text-accent transition-colors">
-                {pack.title}
-              </h3>
-              <p className="text-sm text-text-secondary mt-1">{pack.subtitle}</p>
+              <div className="p-4">
+                <h3 className="text-base font-bold group-hover:text-accent transition-colors">
+                  {pack.title}
+                </h3>
+                <p className="text-sm text-text-secondary mt-0.5">{pack.subtitle}</p>
 
-              <span className="mt-3 inline-flex items-center gap-1 text-xs text-accent font-mono">
-                View on Itch.io <ExternalLink size={10} />
-              </span>
+                <span className="mt-3 inline-flex items-center gap-1 text-xs text-accent font-mono">
+                  View on Itch.io <ExternalLink size={10} />
+                </span>
+              </div>
             </motion.a>
           ))}
         </div>

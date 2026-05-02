@@ -150,6 +150,7 @@ export const artPacks = [
     subtitle: '440+ tiles (16x16)',
     url: 'https://leon-twemlow.itch.io/platformer-set',
     itchId: 2677092,
+    image: 'https://img.itch.zone/aW1hZ2UvMjY3NzA5Mi8xODE4NjQ2Ni5wbmc=/347x500/T7L9gU.png',
   },
   {
     id: 'top-down-character',
@@ -157,6 +158,7 @@ export const artPacks = [
     subtitle: 'Character sprites & animations',
     url: 'https://leon-twemlow.itch.io/top-down-character-template',
     itchId: 2703404,
+    image: 'https://img.itch.zone/aW1hZ2UvMjcwMzQwNC8xOTI1NTc5My5naWY=/original/jgBK2x.gif',
   },
   {
     id: 'isometric-pack',
@@ -164,6 +166,7 @@ export const artPacks = [
     subtitle: 'Isometric game tiles',
     url: 'https://leon-twemlow.itch.io/free-isometric-tile-pack',
     itchId: 2505230,
+    image: 'https://img.itch.zone/aW1nLzE0ODg0NDExLnBuZw==/347x500/N3pnd2.png',
   },
   {
     id: 'stone-brick-dungeon',
@@ -171,6 +174,7 @@ export const artPacks = [
     subtitle: 'Dungeon platformer tiles',
     url: 'https://leon-twemlow.itch.io/dungeon-platformer-set',
     itchId: 2631971,
+    image: 'https://img.itch.zone/aW1hZ2UvMjYzMTk3MS8xNTY4MzMzMi5wbmc=/347x500/BslRoj.png',
   },
   {
     id: 'low-poly-house',
@@ -178,6 +182,7 @@ export const artPacks = [
     subtitle: 'Modular 3D house assets',
     url: 'https://leon-twemlow.itch.io/low-poly-modular-house-pack',
     itchId: 3070044,
+    image: 'https://img.itch.zone/aW1hZ2UvMzA3MDA0NC8xODM2MDQ0Mi5wbmc=/347x500/u%2FB%2FGK.png',
   },
   {
     id: 'platformer-tileset',
@@ -185,6 +190,7 @@ export const artPacks = [
     subtitle: 'Tiny pixel art tiles',
     url: 'https://leon-twemlow.itch.io/simple-8x8-platformer-tileset',
     itchId: 2294231,
+    image: 'https://img.itch.zone/aW1hZ2UvMjI5NDIzMS8xMzU5NTMyMC5qcGc=/347x500/LLKJwh.jpg',
   },
 ];
 
