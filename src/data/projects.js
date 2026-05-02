@@ -46,7 +46,7 @@ export const projects = [
       'Rich lore inspired by Tibetan mythology',
       '49-day time cycle mechanic',
     ],
-    techStack: ['Unity', 'C#', 'Steamworks'],
+    techStack: ['Unreal Engine 5', 'C++'],
     links: {
       steam: 'https://store.steampowered.com/app/1683570/Samsara/',
     },
