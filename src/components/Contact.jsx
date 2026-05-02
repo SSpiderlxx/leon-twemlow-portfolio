@@ -41,7 +41,7 @@ export default function Contact() {
               href="mailto:leon@twemlow.dev"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent hover:bg-accent/90 text-white font-medium transition-all hover:shadow-lg hover:shadow-accent/25 active:scale-95"
             >
-              leon@example.com
+              leon@twemlow.dev
               <ArrowRight size={16} />
             </a>
 
