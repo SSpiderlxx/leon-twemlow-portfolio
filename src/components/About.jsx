@@ -57,7 +57,7 @@ export default function About() {
               My work spans C# and Unity through to C++ engines, Android
               development, and game art. The{' '}
               <span className="text-text-primary">TileMapEngine</span> is my
-              largest open-source project — a tile-based framework powering
+              largest project — a tile-based framework powering
               <span className="text-text-primary"> Echoes of the Hive</span>.
             </p>
 
