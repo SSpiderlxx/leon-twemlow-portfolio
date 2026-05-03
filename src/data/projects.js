@@ -64,7 +64,7 @@ export const projects = [
     id: 'tilemap-engine',
     title: 'TileMapEngine',
     tagline: 'Unity Tile Map Game Engine',
-    category: 'opensource',
+    category: 'engine',
     status: 'Active',
     description: 'A comprehensive tile map game engine for Unity, featuring procedural level generation, advanced tile systems, voxel rendering, multi-threaded lighting, AI pathfinding, inventory systems, and full save/load functionality.',
     features: [

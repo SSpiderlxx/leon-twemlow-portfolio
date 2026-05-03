@@ -1,14 +1,15 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Smartphone, GitBranch } from 'lucide-react';
+import { ExternalLink, Smartphone, GitBranch, Blocks } from 'lucide-react';
 import { projects } from '../data/projects';
 
 const oss = projects.filter(
-  (p) => p.category === 'opensource' || p.category === 'app'
+  (p) => p.category === 'opensource' || p.category === 'app' || p.category === 'engine'
 );
 
 const categoryIcons = {
   opensource: <GitBranch size={16} />,
   app: <Smartphone size={16} />,
+  engine: <Blocks size={16} />,
 };
 
 export default function Projects() {
