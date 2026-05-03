@@ -51,9 +51,13 @@ export const projects = [
       steam: 'https://store.steampowered.com/app/1683570/Samsara/',
     },
     images: {
-      header: '',
-      capsule: '',
-      screenshots: [],
+      header: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1683570/18e52afc192568dd6575a56d701a4311d06fac99/header.jpg?t=1768996215',
+      capsule: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1683570/dc378e6d1c5472a65e50309d1bce815d6cc9c265/capsule_231x87.jpg?t=1768996215',
+      screenshots: [
+        'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1683570/ss_39ccefb97088a0f7fa8c8324bb7fd76b699ab1e1.1920x1080.jpg?t=1768996215',
+        'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1683570/ss_4ee70acbea4cb52dde116127f07f38cdb8d59858.1920x1080.jpg?t=1768996215',
+        'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1683570/ss_45f4347e1dbffc4664c443a954503e15141ddb7c.1920x1080.jpg?t=1768996215',
+      ],
     },
   },
   {
