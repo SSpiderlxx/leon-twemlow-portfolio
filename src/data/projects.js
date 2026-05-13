@@ -61,6 +61,35 @@ export const projects = [
     },
   },
   {
+    id: 'vorrheim-age-of-exile',
+    title: 'Vorrheim: Age of Exile',
+    tagline: 'Real-Time Isometric Survival Game',
+    category: 'game',
+    status: 'Released',
+    description: 'A real-time isometric survival game built in Unity. Cast into the depths of a vast, procedurally generated underground cave world known as Vorrheim, you must take command of a small band of exiled survivors and carve out your existence in the stone. Direct your units across a sprawling 100×100 tile cave map, mining stone and ore, constructing defences, and engaging monsters hiding beyond the fog of war.',
+    features: [
+      'Procedurally generated cave systems with layered Perlin noise terrain',
+      'Real-time unit command in isometric perspective',
+      'Resource gathering — stone, coal, iron, and more',
+      'Monster camps that scale with distance from spawn',
+      'Fog of war exploration across a fully generated underground world',
+      'Save and load system to continue your exile across sessions',
+    ],
+    techStack: ['Unity', 'C#', 'TileMapEngine'],
+    links: {
+      itch: 'https://leon-twemlow.itch.io/vorrheim-age-of-exile',
+    },
+    images: {
+      header: 'https://img.itch.zone/aW1hZ2UvNDUwNzkwMC8yNjg3NTI2NC5wbmc=/original/vKFVB9.png',
+      capsule: '',
+      screenshots: [
+        'https://img.itch.zone/aW1hZ2UvNDUwNzkwMC8yNjg3NTYzMi5wbmc=/original/HfeqDc.png',
+        'https://img.itch.zone/aW1hZ2UvNDUwNzkwMC8yNjg3NTYzNi5wbmc=/original/FFz4XG.png',
+        'https://img.itch.zone/aW1hZ2UvNDUwNzkwMC8yNjg3NTY0MC5wbmc=/original/DFx84J.png',
+      ],
+    },
+  },
+  {
     id: 'tilemap-engine',
     title: 'TileMapEngine',
     tagline: 'Unity Tile Map Game Engine',
