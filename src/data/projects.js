@@ -74,10 +74,10 @@ export const projects = [
   {
     id: 'samsara',
     title: 'Samsara',
-    tagline: 'Souls-like Action RPG',
+    tagline: 'Souls-like Action RPG — Contracted Developer',
     category: 'game',
     status: 'Early Access',
-    description: 'Death is not the end. A souls-like action-RPG inspired by the Tibetan Book of the Dead. Trapped after life in a dreamlike, cyclic purgatory, seek a way to escape within 49 days or be eternally reincarnated as six unique avatars based on the karma of your past life.',
+    description: 'Contracted as a developer on Samsara, a souls-like action-RPG inspired by the Tibetan Book of the Dead. Trapped after life in a dreamlike, cyclic purgatory, seek a way to escape within 49 days or be eternally reincarnated as six unique avatars based on the karma of your past life.',
     features: [
       'Six unique playable avatars with distinct playstyles',
       'Souls-like combat mechanics',
