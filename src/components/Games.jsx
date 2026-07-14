@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
+import { ExternalLink, ChevronLeft, ChevronRight, Pause, Play, Film } from 'lucide-react';
 import { projects } from '../data/projects';
 
 const games = projects.filter((p) => p.category === 'game');
@@ -16,9 +16,9 @@ export default function Games() {
           transition={{ duration: 0.6 }}
         >
           <span className="text-accent font-mono text-sm">01</span>
-          <h2 className="section-heading mt-2">Published Games</h2>
+          <h2 className="section-heading mt-2">Games &amp; Tech Demos</h2>
           <p className="mt-3 text-text-secondary max-w-xl">
-            Games I&apos;ve built and released — from souls-like RPGs to sandbox adventures.
+            Games and visual tech demos I&apos;ve built — from souls-like RPGs to custom voxel engines.
           </p>
         </motion.div>
 
@@ -33,20 +33,26 @@ export default function Games() {
 }
 
 function GameCard({ game, index }) {
-  // Build slides: header first if exists, then all screenshots
+  // Build slides: header first, then screenshots, then videos
   const slides = [];
   if (game.images.header) {
-    slides.push({ src: game.images.header, label: 'Header' });
+    slides.push({ type: 'img', src: game.images.header, label: 'Header' });
   }
   if (game.images.screenshots?.length > 0) {
     game.images.screenshots.forEach((src) => {
-      slides.push({ src, label: 'Screenshot' });
+      slides.push({ type: 'img', src, label: 'Screenshot' });
+    });
+  }
+  if (game.videos?.length > 0) {
+    game.videos.forEach((v) => {
+      slides.push({ type: 'video', src: v.src, poster: v.poster, label: v.label });
     });
   }
   const hasSlides = slides.length > 0;
 
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
+  const videoRefs = useRef({});
 
   const next = useCallback(() => {
     setCurrent((c) => (c + 1) % slides.length);
@@ -56,7 +62,20 @@ function GameCard({ game, index }) {
     setCurrent((c) => (c - 1 + slides.length) % slides.length);
   }, [slides.length]);
 
-  // Auto-advance every 5s (pause on hover)
+  // Pause/play video when current slide changes
+  useEffect(() => {
+    Object.entries(videoRefs.current).forEach(([idx, el]) => {
+      if (!el) return;
+      if (Number(idx) === current && slides[current]?.type === 'video') {
+        el.currentTime = 0;
+        el.play().catch(() => {});
+      } else {
+        el.pause();
+      }
+    });
+  }, [current, slides]);
+
+  // Auto-advance every 5s (pause on hover, skip if video playing)
   useEffect(() => {
     if (!hasSlides || paused || slides.length < 2) return;
     const timer = setInterval(next, 5000);
@@ -87,17 +106,42 @@ function GameCard({ game, index }) {
         >
           <div className="relative w-full h-full min-h-[280px]">
             <AnimatePresence mode="wait">
-              <motion.img
-                key={current}
-                src={slides[current].src}
-                alt={`${game.title} — ${slides[current].label}`}
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.5 }}
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-              />
+              {slides[current].type === 'video' ? (
+                <motion.div
+                  key={current}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="absolute inset-0 w-full h-full"
+                >
+                  <video
+                    ref={(el) => { if (el) videoRefs.current[current] = el; }}
+                    src={slides[current].src}
+                    poster={slides[current].poster}
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-black/50 text-white/80 text-[10px] font-mono flex items-center gap-1">
+                    <Film size={10} />
+                    Demo
+                  </div>
+                </motion.div>
+              ) : (
+                <motion.img
+                  key={current}
+                  src={slides[current].src}
+                  alt={`${game.title} — ${slides[current].label}`}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+              )}
             </AnimatePresence>
           </div>
 
