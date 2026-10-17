@@ -35,7 +35,7 @@ export default function About() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-accent font-mono text-sm">06</span>
+          <span className="neon-cyan font-mono text-lg">STAGE 06</span>
           <h2 className="section-heading mt-2">About</h2>
         </motion.div>
 
@@ -74,11 +74,11 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
-                  className="flex items-center gap-3 p-3 rounded-lg bg-bg-card border border-border-subtle/30"
+                  className="flex items-center gap-3 p-3 rounded-lg bg-bg-card border-2 border-border-subtle pixel-shadow"
                 >
                   <span className="text-accent shrink-0">{h.icon}</span>
                   <div>
-                    <div className="text-lg font-bold">{h.stat}</div>
+                    <div className="text-2xl font-mono neon-cyan leading-none">{h.stat}</div>
                     <div className="text-xs text-text-secondary">{h.label}</div>
                   </div>
                 </motion.div>

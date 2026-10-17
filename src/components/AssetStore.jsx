@@ -15,7 +15,7 @@ export default function AssetStore() {
           className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4"
         >
           <div>
-            <span className="text-accent font-mono text-sm">01</span>
+            <span className="neon-cyan font-mono text-lg">STAGE 01</span>
             <h2 className="section-heading mt-2">Unity Asset Store</h2>
             <p className="mt-3 text-text-secondary max-w-xl">
               Commercial developer tools I design, build, ship and support — rendering

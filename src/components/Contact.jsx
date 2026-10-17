@@ -12,7 +12,7 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <span className="text-accent font-mono text-sm">07</span>
+          <span className="neon-cyan font-mono text-lg">STAGE 07</span>
           <h2 className="section-heading mt-2">Get in Touch</h2>
           <p className="mt-3 text-text-secondary max-w-lg mx-auto">
             Hiring for a Unity or gameplay programming role, need help with an Asset Store tool, or want to collaborate?
@@ -27,8 +27,8 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="mt-12 max-w-md mx-auto"
         >
-          <div className="rounded-2xl border border-border-subtle/50 bg-bg-secondary p-8 text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent-dim border border-accent/20 mb-6">
+          <div className="rounded-2xl border-2 border-border-subtle bg-bg-secondary p-6 sm:p-8 text-center pixel-shadow">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-none bg-accent-dim border border-accent/20 mb-6">
               <Mail className="text-accent" size={28} />
             </div>
 
@@ -39,7 +39,7 @@ export default function Contact() {
 
             <a
               href="mailto:leon@twemlow.dev"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent hover:bg-accent/90 text-white font-medium transition-all hover:shadow-lg hover:shadow-accent/25 active:scale-95"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-none pixel-btn bg-accent hover:bg-accent/90 text-bg-primary font-semibold transition-all active:scale-95"
             >
               leon@twemlow.dev
               <ArrowRight size={16} />

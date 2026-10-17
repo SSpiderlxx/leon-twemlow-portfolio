@@ -7,9 +7,12 @@ export default function Hero() {
       {/* Particle grid background */}
       <div className="absolute inset-0 particle-grid" />
 
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/60 via-transparent to-bg-primary" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] sm:w-[600px] sm:h-[600px] rounded-full bg-accent/10 blur-[80px] sm:blur-[120px]" />
+      {/* Synthwave sun + scrolling grid floor */}
+      <div className="absolute inset-0 bg-gradient-to-b from-bg-primary via-[#1a0f3d] to-[#2a0f45]" />
+      <div className="synth-sun absolute left-1/2 -translate-x-1/2 bottom-[22%] w-[240px] h-[240px] sm:w-[380px] sm:h-[380px] rounded-full opacity-45" />
+      <div className="absolute inset-x-0 bottom-[22%] h-px bg-accent/60 shadow-[0_0_20px_4px_rgba(255,61,154,0.5)]" />
+      <div className="synth-floor" />
+      <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/80 via-transparent via-75% to-bg-primary" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 pt-20 pb-24 max-w-4xl mx-auto">
@@ -18,9 +21,10 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-accent-dim border border-accent/20 text-accent text-xs sm:text-sm font-mono mb-6">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-none bg-bg-primary/70 border-2 border-accent/60 text-accent text-sm sm:text-lg font-mono whitespace-nowrap mb-6">
             <Gamepad2 size={14} />
             Unity / Gameplay Programmer
+            <span className="cursor-blink">_</span>
           </div>
         </motion.div>
 
@@ -28,7 +32,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
-          className="text-[2.6rem] sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] sm:leading-[0.9]"
+          className="text-[2.6rem] sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.95] sm:leading-[0.9] drop-shadow-[4px_4px_0_rgba(0,0,0,0.6)]"
         >
           Building Worlds,
           <br />
@@ -55,13 +59,13 @@ export default function Hero() {
         >
           <a
             href="#asset-store"
-            className="px-8 py-3 rounded-full whitespace-nowrap text-center bg-accent hover:bg-accent/90 text-white font-medium transition-all hover:shadow-lg hover:shadow-accent/25 active:scale-95"
+            className="px-8 py-3 rounded-none whitespace-nowrap text-center pixel-btn bg-accent hover:bg-accent/90 text-bg-primary font-semibold transition-all active:scale-95"
           >
-            View My Work
+            ▶ View My Work
           </a>
           <a
             href="#contact"
-            className="px-8 py-3 rounded-full whitespace-nowrap text-center border border-border-subtle hover:border-accent/50 text-text-secondary hover:text-accent font-medium transition-all"
+            className="px-8 py-3 rounded-none whitespace-nowrap text-center bg-bg-primary/70 backdrop-blur-sm border border-border-subtle hover:border-accent/50 text-text-secondary hover:text-accent font-medium transition-all"
           >
             Get in Touch
           </a>

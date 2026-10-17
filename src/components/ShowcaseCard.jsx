@@ -72,7 +72,7 @@ export default function ShowcaseCard({ game, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.6, delay: index * 0.15 }}
-      className={`group relative rounded-2xl overflow-hidden border border-border-subtle/50 bg-bg-secondary ${
+      className={`group relative rounded-2xl overflow-hidden border-2 border-border-subtle bg-bg-secondary pixel-shadow ${
         hasSlides ? 'grid md:grid-cols-5 lg:grid-cols-2' : 'p-8'
       }`}
     >
@@ -130,7 +130,7 @@ export default function ShowcaseCard({ game, index }) {
                     playsInline
                     className="absolute inset-0 w-full h-full object-contain"
                   />
-                  <div className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-black/50 text-white/80 text-[10px] font-mono flex items-center gap-1">
+                  <div className="absolute top-2 right-2 px-2 py-0.5 rounded-none bg-black/50 text-white/80 text-[10px] font-mono flex items-center gap-1">
                     <Film size={10} />
                     Demo
                   </div>
@@ -155,14 +155,14 @@ export default function ShowcaseCard({ game, index }) {
               <>
                 <button
                   onClick={prev}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/50 text-white/80 hover:bg-black/70 hover:text-white transition-all md:opacity-0 md:group-hover:opacity-100"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-none bg-black/50 text-white/80 hover:bg-black/70 hover:text-white transition-all md:opacity-0 md:group-hover:opacity-100"
                   aria-label="Previous screenshot"
                 >
                   <ChevronLeft size={18} />
                 </button>
                 <button
                   onClick={next}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/50 text-white/80 hover:bg-black/70 hover:text-white transition-all md:opacity-0 md:group-hover:opacity-100"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-none bg-black/50 text-white/80 hover:bg-black/70 hover:text-white transition-all md:opacity-0 md:group-hover:opacity-100"
                   aria-label="Next screenshot"
                 >
                   <ChevronRight size={18} />
@@ -172,12 +172,12 @@ export default function ShowcaseCard({ game, index }) {
 
             {/* Dot indicators (mobile — desktop uses the thumbnail strip) */}
             {slides.length > 1 && (
-              <div className="md:hidden absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-black/45 backdrop-blur-sm">
+              <div className="md:hidden absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-none bg-black/45 backdrop-blur-sm">
                 {slides.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setCurrent(i)}
-                    className={`w-2 h-2 rounded-full transition-all ${
+                    className={`w-2 h-2 rounded-none transition-all ${
                       i === current
                         ? 'bg-white w-3'
                         : 'bg-white/40 hover:bg-white/60'
@@ -187,7 +187,7 @@ export default function ShowcaseCard({ game, index }) {
                 ))}
                 <button
                   onClick={() => setPaused((p) => !p)}
-                  className="ml-2 p-0.5 rounded-full text-white/60 hover:text-white/90 transition-colors"
+                  className="ml-2 p-0.5 rounded-none text-white/60 hover:text-white/90 transition-colors"
                   aria-label={paused ? 'Resume slideshow' : 'Pause slideshow'}
                 >
                   {paused ? <Play size={10} /> : <Pause size={10} />}
@@ -233,11 +233,11 @@ export default function ShowcaseCard({ game, index }) {
         <div className="flex items-start justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-block px-3 py-1 rounded-full text-xs font-mono bg-accent-dim text-accent border border-accent/20">
+              <span className="inline-block px-3 py-1 rounded-none text-xs font-mono bg-accent-dim text-accent border border-accent/20">
                 {game.status}
               </span>
               {game.price && (
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-mono bg-bg-card text-text-secondary border border-border-subtle">
+                <span className="inline-block px-3 py-1 rounded-none text-xs font-mono bg-bg-card text-text-secondary border border-border-subtle">
                   {game.price}
                 </span>
               )}
@@ -276,7 +276,7 @@ export default function ShowcaseCard({ game, index }) {
                 key={f}
                 className={`text-sm text-text-secondary items-start gap-2 ${i >= 4 ? 'hidden sm:flex' : 'flex'}`}
               >
-                <span className="w-1 h-1 rounded-full bg-accent shrink-0 mt-2" />
+                <span className="w-1 h-1 rounded-none bg-accent shrink-0 mt-2" />
                 {f}
               </li>
             ))}
@@ -287,7 +287,7 @@ export default function ShowcaseCard({ game, index }) {
           {game.techStack.map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1 text-xs font-mono rounded-full bg-bg-card text-text-secondary border border-border-subtle"
+              className="px-3 py-1 text-xs font-mono rounded-none bg-bg-card text-text-secondary border border-border-subtle"
             >
               {tech}
             </span>
@@ -299,7 +299,7 @@ export default function ShowcaseCard({ game, index }) {
             href={game.links.assetStore}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 self-stretch sm:self-start inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:py-2 rounded-full bg-accent hover:bg-accent/90 text-white text-sm font-medium transition-all hover:shadow-lg hover:shadow-accent/25 active:scale-95"
+            className="mt-6 self-stretch sm:self-start inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:py-2 rounded-none pixel-btn bg-accent hover:bg-accent/90 text-bg-primary text-sm font-semibold transition-all active:scale-95"
           >
             <ShoppingBag size={14} />
             View on the Asset Store

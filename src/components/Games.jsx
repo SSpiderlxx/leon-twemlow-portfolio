@@ -14,7 +14,7 @@ export default function Games() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-accent font-mono text-sm">02</span>
+          <span className="neon-cyan font-mono text-lg">STAGE 02</span>
           <h2 className="section-heading mt-2">Games</h2>
           <p className="mt-3 text-text-secondary max-w-xl">
             Games I&apos;ve shipped and contributed to — from co-op sandbox adventures to souls-like RPGs.

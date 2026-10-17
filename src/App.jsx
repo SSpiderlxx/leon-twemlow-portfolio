@@ -22,6 +22,7 @@ export default function App() {
       <About />
       <Contact />
       <Footer />
+      <div className="crt-overlay" aria-hidden="true" />
     </>
   );
 }

@@ -12,13 +12,13 @@ export default function Experience() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-accent font-mono text-sm">05</span>
+          <span className="neon-cyan font-mono text-lg">STAGE 05</span>
           <h2 className="section-heading mt-2">Experience</h2>
         </motion.div>
 
         <div className="mt-8 sm:mt-12 grid lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Work timeline */}
-          <div className="lg:col-span-2 relative border-l border-border-subtle/60 pl-6 sm:pl-8 space-y-10">
+          <div className="lg:col-span-2 relative border-l-2 border-dashed border-border-subtle pl-6 sm:pl-8 space-y-10">
             {experience.map((job, i) => (
               <motion.div
                 key={job.role}
@@ -28,7 +28,7 @@ export default function Experience() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="relative"
               >
-                <span className="absolute -left-[33px] sm:-left-[41px] top-1 p-1.5 rounded-full bg-bg-primary border border-accent/40 text-accent">
+                <span className="absolute -left-[33px] sm:-left-[41px] top-1 p-1.5 rounded-none bg-bg-primary border border-accent/40 text-accent">
                   <Briefcase size={12} />
                 </span>
                 <p className="text-xs font-mono text-accent">{job.period}</p>
@@ -37,7 +37,7 @@ export default function Experience() {
                 <ul className="mt-4 space-y-2">
                   {job.points.map((point) => (
                     <li key={point} className="text-sm text-text-secondary leading-relaxed flex gap-2">
-                      <span className="w-1 h-1 rounded-full bg-accent shrink-0 mt-2" />
+                      <span className="w-1 h-1 rounded-none bg-accent shrink-0 mt-2" />
                       {point}
                     </li>
                   ))}
@@ -61,7 +61,7 @@ export default function Experience() {
               {education.map((item) => (
                 <div
                   key={item.title}
-                  className="p-4 rounded-xl bg-bg-secondary border border-border-subtle/50"
+                  className="p-4 rounded-xl bg-bg-secondary border-2 border-border-subtle pixel-shadow"
                 >
                   <p className="font-medium">{item.title}</p>
                   <p className="text-sm text-text-secondary">{item.org}</p>

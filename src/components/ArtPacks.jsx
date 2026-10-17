@@ -12,7 +12,7 @@ export default function ArtPacks() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-accent font-mono text-sm">04</span>
+          <span className="neon-cyan font-mono text-lg">STAGE 04</span>
           <h2 className="section-heading mt-2">Game Art Packs</h2>
           <p className="mt-3 text-text-secondary max-w-xl">
             Free and premium pixel art &amp; 3D asset packs on Itch.io and the Unity Asset Store.
@@ -30,7 +30,7 @@ export default function ArtPacks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="group relative rounded-xl border border-border-subtle/50 bg-bg-secondary overflow-hidden hover:border-accent/30 transition-all duration-300 hover:-translate-y-1"
+              className="group relative rounded-xl border-2 border-border-subtle bg-bg-secondary overflow-hidden hover:border-accent/60 pixel-shadow hover:-translate-y-1"
             >
               <div className="aspect-[3/4] sm:aspect-video overflow-hidden bg-bg-card">
                 <img

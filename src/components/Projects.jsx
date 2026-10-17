@@ -22,7 +22,7 @@ export default function Projects() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-accent font-mono text-sm">03</span>
+          <span className="neon-cyan font-mono text-lg">STAGE 03</span>
           <h2 className="section-heading mt-2">Open Source &amp; Projects</h2>
           <p className="mt-3 text-text-secondary max-w-xl">
             Game engines, frameworks, plugins and apps I&apos;ve built.
@@ -37,7 +37,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group relative rounded-xl border border-border-subtle/50 bg-bg-secondary p-6 hover:border-accent/30 transition-all duration-300 hover:-translate-y-1"
+              className="group relative rounded-xl border-2 border-border-subtle bg-bg-secondary p-6 hover:border-accent/60 pixel-shadow hover:-translate-y-1"
             >
               {/* Icon */}
               <div className="flex items-center gap-3 mb-4">
