@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { skills } from '../data/projects';
-import { Code2, Gamepad2, Palette, Shovel } from 'lucide-react';
+import { skillGroups } from '../data/projects';
+import { Code2, Gamepad2, ShoppingBag, Shovel } from 'lucide-react';
 
 const highlights = [
   {
@@ -9,25 +9,25 @@ const highlights = [
     label: 'Games Released',
   },
   {
+    icon: <ShoppingBag size={20} />,
+    stat: '5',
+    label: 'Asset Store Products',
+  },
+  {
     icon: <Code2 size={20} />,
     stat: '3',
     label: 'Game Engines Built',
   },
   {
-    icon: <Palette size={20} />,
-    stat: '6',
-    label: 'Art Packs Published',
-  },
-  {
     icon: <Shovel size={20} />,
-    stat: '10+',
-    label: 'Years Building',
+    stat: '5+',
+    label: 'Years Experience',
   },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="relative py-24 sm:py-32 px-6">
+    <section id="about" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -35,7 +35,7 @@ export default function About() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-accent font-mono text-sm">04</span>
+          <span className="text-accent font-mono text-sm">06</span>
           <h2 className="section-heading mt-2">About</h2>
         </motion.div>
 
@@ -48,17 +48,21 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <p className="text-text-secondary leading-relaxed text-lg">
-              I&apos;m an indie game developer and software engineer who builds
-              everything from the ground up — game engines, procedural world
-              generators, pixel art, and full games. I love the craft of
-              building systems that feel alive.
+              I&apos;m a Unity developer and gameplay programmer with 5+ years of
+              hands-on experience building commercial games, reusable developer
+              tools and custom engine systems. I recently completed a BA (Hons)
+              in Games Technologies.
             </p>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              My work spans C# and Unity through to C++ engines, Android
-              development, and game art. The{' '}
-              <span className="text-text-primary">TileMapEngine</span> is my
-              largest project — a tile-based framework powering
-              <span className="text-text-primary"> Echoes of the Hive</span>.
+              I independently develop and ship both games and{' '}
+              <span className="text-text-primary">Unity Asset Store</span> products,
+              owning everything from engineering and optimisation to release,
+              documentation, analytics and customer support. My strengths are C#
+              and C++, gameplay architecture, graphics and rendering, AI and
+              performance — from the{' '}
+              <span className="text-text-primary">Raymarch Voxel Engine</span> to the
+              tilemap tech powering{' '}
+              <span className="text-text-primary">Echoes of the Hive</span>.
             </p>
 
             {/* Highlights */}
@@ -90,18 +94,25 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h3 className="text-lg font-bold mb-4">Skills &amp; Technologies</h3>
-            <div className="flex flex-wrap gap-2">
-              {skills.map((skill, i) => (
-                <motion.span
-                  key={skill}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.03 }}
-                  className="px-4 py-2 rounded-lg bg-bg-card border border-border-subtle/50 text-sm text-text-secondary hover:border-accent/30 hover:text-accent transition-all"
-                >
-                  {skill}
-                </motion.span>
+            <div className="space-y-5">
+              {skillGroups.map((group, g) => (
+                <div key={group.label}>
+                  <p className="text-xs font-mono text-accent mb-2">{group.label}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {group.items.map((skill, i) => (
+                      <motion.span
+                        key={skill}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: g * 0.05 + i * 0.03 }}
+                        className="px-3 py-1.5 rounded-lg bg-bg-card border border-border-subtle/50 text-sm text-text-secondary hover:border-accent/30 hover:text-accent transition-all"
+                      >
+                        {skill}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </motion.div>

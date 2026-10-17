@@ -1,10 +1,10 @@
-import { GitBranch, ExternalLink, Gamepad2 } from 'lucide-react';
+import { GitBranch, ExternalLink, Gamepad2, ShoppingBag, Briefcase } from 'lucide-react';
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border-subtle/30 py-10 px-6">
+    <footer className="border-t border-border-subtle/30 py-10 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="font-mono text-sm text-text-secondary">
           <span className="text-accent">&lt;</span>
@@ -13,7 +13,7 @@ export default function Footer() {
           <span className="ml-2 opacity-50">&copy; {year}</span>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
           <a
             href="https://github.com/SSpiderlxx"
             target="_blank"
@@ -22,6 +22,24 @@ export default function Footer() {
             title="GitHub"
           >
             <GitBranch size={18} />
+          </a>
+          <a
+            href="https://assetstore.unity.com/publishers/60320"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-lg text-text-secondary hover:text-accent hover:bg-accent-dim transition-all"
+            title="Unity Asset Store"
+          >
+            <ShoppingBag size={18} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/leon-twemlow"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-lg text-text-secondary hover:text-accent hover:bg-accent-dim transition-all"
+            title="LinkedIn"
+          >
+            <Briefcase size={18} />
           </a>
           <a
             href="https://leon-twemlow.itch.io/"

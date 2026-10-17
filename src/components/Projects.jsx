@@ -14,7 +14,7 @@ const categoryIcons = {
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-24 sm:py-32 px-6">
+    <section id="projects" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -22,14 +22,14 @@ export default function Projects() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-accent font-mono text-sm">02</span>
+          <span className="text-accent font-mono text-sm">03</span>
           <h2 className="section-heading mt-2">Open Source &amp; Projects</h2>
           <p className="mt-3 text-text-secondary max-w-xl">
-            Game engines, plugins, tools, and apps I&apos;ve built.
+            Game engines, frameworks, plugins and apps I&apos;ve built.
           </p>
         </motion.div>
 
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="mt-8 sm:mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {oss.map((project, i) => (
             <motion.div
               key={project.id}

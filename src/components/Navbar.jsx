@@ -3,9 +3,11 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
+  { label: 'Asset Store', href: '#asset-store' },
   { label: 'Games', href: '#games' },
   { label: 'Projects', href: '#projects' },
   { label: 'Art Packs', href: '#art-packs' },
+  { label: 'Experience', href: '#experience' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -28,7 +30,7 @@ export default function Navbar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <a
           href="#"
           className="font-mono text-lg font-bold tracking-tight hover:text-accent transition-colors"
@@ -53,7 +55,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-text-primary"
+          className="md:hidden -mr-2 p-2 text-text-primary"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -70,13 +72,13 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-bg-primary/95 backdrop-blur-xl border-b border-border-subtle/50"
           >
-            <div className="px-6 py-4 flex flex-col gap-4">
+            <div className="px-4 sm:px-6 py-2 flex flex-col">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="text-text-secondary hover:text-accent transition-colors"
+                  className="py-3 text-text-secondary hover:text-accent border-b border-border-subtle/30 last:border-0 transition-colors"
                 >
                   {link.label}
                 </a>

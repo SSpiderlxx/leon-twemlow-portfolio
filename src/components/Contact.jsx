@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
-import { Mail, MapPin, ArrowRight } from 'lucide-react';
+import { Mail, MapPin, ArrowRight, Briefcase } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative py-24 sm:py-32 px-6">
+    <section id="contact" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -12,10 +12,10 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <span className="text-accent font-mono text-sm">05</span>
+          <span className="text-accent font-mono text-sm">07</span>
           <h2 className="section-heading mt-2">Get in Touch</h2>
           <p className="mt-3 text-text-secondary max-w-lg mx-auto">
-            Interested in collaboration, press inquiries, or just want to say hi?
+            Hiring for a Unity or gameplay programming role, need help with an Asset Store tool, or want to collaborate?
             I&apos;d love to hear from you.
           </p>
         </motion.div>
@@ -34,7 +34,7 @@ export default function Contact() {
 
             <p className="text-lg font-medium mb-2">Send me an email</p>
             <p className="text-text-secondary text-sm mb-6">
-              For business inquiries, press kits, or collaboration requests.
+              For roles, contract work, asset support or collaboration requests.
             </p>
 
             <a
@@ -45,9 +45,20 @@ export default function Contact() {
               <ArrowRight size={16} />
             </a>
 
-            <div className="mt-6 pt-6 border-t border-border-subtle/30 flex items-center justify-center gap-2 text-sm text-text-secondary">
-              <MapPin size={14} />
-              <span>United Kingdom</span>
+            <div className="mt-6 pt-6 border-t border-border-subtle/30 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-text-secondary">
+              <span className="inline-flex items-center gap-2">
+                <MapPin size={14} />
+                North Shields, UK
+              </span>
+              <a
+                href="https://www.linkedin.com/in/leon-twemlow"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 hover:text-accent transition-colors"
+              >
+                <Briefcase size={14} />
+                LinkedIn
+              </a>
             </div>
           </div>
         </motion.div>

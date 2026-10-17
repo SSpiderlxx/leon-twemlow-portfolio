@@ -1,44 +1,122 @@
-export const projects = [
+export const assetStoreUrl = 'https://assetstore.unity.com/publishers/60320';
+
+const shots = (slug, n) =>
+  Array.from({ length: n }, (_, i) => `/images/asset-store/${slug}/${String(i + 1).padStart(2, '0')}.jpg`);
+
+export const assetStoreProducts = [
   {
     id: 'raymarch-voxel-engine',
-    title: 'Raymarched Voxel Engine',
-    tagline: 'Volumetric Clouds & Dynamic Fog — Unity 6 URP',
-    category: 'game',
-    status: 'Active',
-    description: 'A custom Unity voxel engine featuring fully dynamic volumetric clouds and ground fog. Built with HLSL compute shaders for 3D fBm noise generation, a custom raymarching pass through URP\'s Render Graph, and dual-lobe scattering with Henyey-Greenstein phase functions for realistic light behaviour. Customise colour, density, and wind speed per volume — morning mist or neon alien fog, all in real time.',
+    title: 'Raymarch Voxel Engine',
+    tagline: 'Meshless Voxel Engine for Unity 6 URP',
+    status: 'Asset Store',
+    price: '$70',
+    description: 'A raymarched voxel engine for Unity URP with real-time water, infinite biome worlds, destructible terrain with structural physics, voxel cone traced GI and volumetric lighting — all rendered without meshes. Voxels are raymarched directly on the GPU through a custom URP Render Graph feature.',
     features: [
-      'Animated 3D fBm noise via HLSL compute shaders',
-      'Custom raymarching pass through URP Render Graph',
-      'Dual-lobe scattering & Henyey-Greenstein phase functions',
-      'Fully customisable cloud colour, density & wind speed',
-      'Dynamic ground fog with volumetric lighting',
-      '3D RenderTexture & VRAM management',
-      'Scene-view animation without Play mode',
-      'Voxel world generation with LOD system',
-      'Physics & destruction system for voxel terrain',
+      'Meshless GPU raymarching via a URP renderer feature',
+      'Empty-space skipping with fine DDA traversal',
+      'Voxel cone traced GI with up to 16 point/spot lights',
+      'Mass-conserving water sim in parallel Burst jobs',
+      'Refraction, caustics & underwater rendering',
+      'Infinite procedural biome worlds',
+      'Destructible terrain with structural physics',
+      'Volumetric explosions, smoke, clouds & fog',
     ],
-    techStack: ['Unity 6', 'C#', 'HLSL', 'URP', 'Compute Shaders'],
-    links: {},
+    techStack: ['Unity 6', 'C#', 'HLSL', 'URP Render Graph', 'Burst', 'Compute Shaders'],
+    links: {
+      assetStore: 'https://assetstore.unity.com/packages/templates/systems/raymarch-voxel-engine-391548',
+      youtube: 'https://www.youtube.com/watch?v=mi_TCA_mnQ8',
+    },
     images: {
-      header: '/images/raymarch-voxel-engine/main.png',
-      capsule: '',
-      screenshots: [
-        '/images/raymarch-voxel-engine/Voxel Engine.png',
-        '/images/raymarch-voxel-engine/Volumetric Lighting.png',
-        '/images/raymarch-voxel-engine/World Generation LOD.png',
-        '/images/raymarch-voxel-engine/Vox support.png',
-        '/images/raymarch-voxel-engine/Physics & destruction.png',
-        '/images/raymarch-voxel-engine/Fog.png',
-        '/images/raymarch-voxel-engine/Before & After.png',
-        '/images/raymarch-voxel-engine/Fog Volume.png',
-        '/images/raymarch-voxel-engine/Fog Color.png',
-      ],
+      header: '/images/asset-store/raymarch-voxel-engine/key.jpg',
+      screenshots: shots('raymarch-voxel-engine', 8),
     },
     videos: [
       { src: '/videos/voxel-showcase.mp4', poster: '/images/raymarch-voxel-engine/main.png', label: 'Voxel Engine Showcase' },
+    ],
+  },
+  {
+    id: 'runtime-csg',
+    title: 'Runtime CSG',
+    tagline: 'Booleans, Shatter & Denting',
+    status: 'Asset Store',
+    price: '$25',
+    description: 'A high-performance runtime CSG toolkit for Unity. Perform fast mesh booleans (union, subtract, intersect), Voronoi shattering and impact mesh deformation at runtime — all accelerated by the C# Job System and Burst, with zero GC allocations.',
+    features: [
+      'Runtime mesh booleans: union, subtract, intersect',
+      'Voronoi shattering for destructible objects',
+      'Impact denting & mesh deformation',
+      'C# Job System & Burst-accelerated pipeline',
+      'Native buffers — zero GC allocations at runtime',
+      'Async collider baking on background threads',
+      'Built-in, URP & HDRP compatible',
+      'Full, well-commented C# source',
+    ],
+    techStack: ['Unity 6', 'C#', 'Job System', 'Burst', 'Mathematics'],
+    links: {
+      assetStore: 'https://assetstore.unity.com/packages/tools/modeling/runtime-csg-booleans-shatter-denting-396698',
+      youtube: 'https://www.youtube.com/watch?v=eAZU3EqyK3Q',
+    },
+    images: {
+      header: '/images/asset-store/runtime-csg/key.jpg',
+      screenshots: shots('runtime-csg', 8),
+    },
+  },
+  {
+    id: 'urp-volumetric-lighting',
+    title: 'URP Volumetric Lighting System',
+    tagline: 'Lighting, Fog, Clouds & Explosions — Unity 6 URP',
+    status: 'Asset Store',
+    price: '$20',
+    description: 'Four raymarched volumetric effects for Unity 6 URP — lighting, fog, clouds and explosions. Compute-shader driven and controlled through Post Process Volumes, with plug-and-play prefabs. Built on 3D fBm noise, a custom raymarching pass through URP\'s Render Graph and Henyey-Greenstein phase scattering.',
+    features: [
+      'Screen-space volumetric lighting via Post Process Volume',
+      'Compute-shader fog with up to 64 FogVolume zones',
+      'Raymarched clouds with per-step self-shadowing',
+      'Runtime volumetric explosions with auto-fade',
+      'Animated 3D noise & wind',
+      'Custom URP Render Graph renderer features',
+      'Adjustable 3D volume resolutions',
+      'Plug-and-play prefabs',
+    ],
+    techStack: ['Unity 6', 'C#', 'HLSL', 'URP', 'Compute Shaders'],
+    links: {
+      assetStore: 'https://assetstore.unity.com/packages/vfx/urp-volumetric-lighting-system-393018',
+    },
+    images: {
+      header: '/images/asset-store/urp-volumetric-lighting/key.jpg',
+      screenshots: shots('urp-volumetric-lighting', 7),
+    },
+    videos: [
       { src: '/videos/volumetric-fog-showcase.mp4', poster: '/images/raymarch-voxel-engine/main.png', label: 'Volumetric Fog Showcase' },
     ],
   },
+  {
+    id: 'hierarchy-rules-tags-pro',
+    title: 'Hierarchy Rules & Tags Pro',
+    tagline: 'Unity Editor Productivity Tool',
+    status: 'Asset Store',
+    price: '$15',
+    description: 'Organise your Unity workflow with multi-tag roles, rule-based Hierarchy and Project folder styling, category headers, component icons and quick toggles. A lightweight editor extension that keeps large scenes readable.',
+    features: [
+      'Multi-tag roles for GameObjects',
+      'Rule-based Hierarchy & Project folder styling',
+      'Category headers & component icons',
+      'Quick toggles in the Hierarchy',
+      'Isolated runtime & editor assemblies',
+      'Built-in, URP & HDRP compatible',
+    ],
+    techStack: ['Unity 6', 'C#', 'Editor Tooling'],
+    links: {
+      assetStore: 'https://assetstore.unity.com/packages/tools/utilities/hierarchy-rules-tags-pro-402942',
+    },
+    images: {
+      header: '/images/asset-store/hierarchy-rules-tags-pro/key.jpg',
+      screenshots: shots('hierarchy-rules-tags-pro', 5),
+    },
+  },
+];
+
+export const projects = [
   {
     id: 'echoes-of-the-hive',
     title: 'Echoes of the Hive',
@@ -130,6 +208,22 @@ export const projects = [
     },
   },
   {
+    id: 'rts-framework',
+    title: 'RTS Framework',
+    tagline: 'Reusable RTS Systems for Unity',
+    category: 'engine',
+    status: 'In Development',
+    description: 'My next major Asset Store product — a reusable RTS systems framework focused on production-ready architecture and tooling: unit selection and command, pathfinding, resource economies and building placement, designed to drop into new projects.',
+    features: [],
+    techStack: ['Unity 6', 'C#', 'Editor Tooling'],
+    links: {},
+    images: {
+      header: '',
+      capsule: '',
+      screenshots: [],
+    },
+  },
+  {
     id: 'tilemap-engine',
     title: 'TileMapEngine',
     tagline: 'Unity Tile Map Game Engine',
@@ -218,6 +312,14 @@ export const projects = [
 
 export const artPacks = [
   {
+    id: 'tiny-8x8-platformer',
+    title: 'Tiny 8x8 Platformer Pack',
+    subtitle: '100+ tiles, 6 biomes & a character',
+    url: 'https://assetstore.unity.com/packages/2d/environments/tiny-8x8-platformer-pack-225092',
+    store: 'Unity Asset Store',
+    image: '/images/asset-store/tiny-8x8-platformer/key.jpg',
+  },
+  {
     id: 'ultimate-platformer',
     title: 'Ultimate Platformer Tile Set',
     subtitle: '440+ tiles (16x16)',
@@ -267,9 +369,39 @@ export const artPacks = [
   },
 ];
 
-export const skills = [
-  'C#', 'C++', 'Unity', 'Unreal Engine', 'Java',
-  'Android Studio', 'A* Pathfinding', 'Tilemap Systems',
-  'Voxel Rendering', 'Pixel Art', 'Game Design',
-  'Procedural Generation', 'Multiplayer Networking',
+export const experience = [
+  {
+    role: 'Unity Developer & Independent Game Developer',
+    org: 'Self-Employed / twemlow.dev',
+    period: '2020 – Present',
+    points: [
+      'Design, engineer and commercially publish Unity developer tools on the Asset Store — Runtime CSG, Raymarch Voxel Engine, URP Volumetric Lighting System and Hierarchy Rules & Tags Pro — owning architecture, optimisation, packaging, documentation, pricing, updates and customer support.',
+      'Created and shipped Echoes of the Hive on Steam, independently in Unity/C#: custom tilemap & collision systems, procedural generation, A* AI, physics gameplay, UI, persistence and performance optimisation.',
+      'Use Asset Store analytics and customer feedback to prioritise development and guide product strategy; currently building an RTS Framework as the next major product.',
+      'Manage Git/GitHub, build pipelines, platform targeting and Steam deployment; integrated Firebase and SQLite for persistent and cloud-connected data.',
+    ],
+  },
+  {
+    role: 'Unreal Engine 5 Developer — Remote Contract',
+    org: 'Infinity27',
+    period: 'Nov 2025 – Jan 2026',
+    points: [
+      'Implemented gameplay systems and AI behaviours in UE5 using Blueprint and C++, debugging issues under delivery pressure.',
+      'Worked remotely with Git and shared documentation; contributed to production builds, blocker identification and scheduled delivery.',
+    ],
+  },
+];
+
+export const education = [
+  { title: 'BA (Hons) Games Technologies', org: 'Newcastle College University', period: '2023 – 2026' },
+  { title: 'UE5 Skills Boot Camp', org: 'Infinity27', period: '2025' },
+];
+
+export const skillGroups = [
+  { label: 'Engines', items: ['Unity 6', 'Unity LTS', 'Unreal Engine 5'] },
+  { label: 'Programming', items: ['C#', 'C++', 'Python', 'JavaScript', 'Bash', 'Java'] },
+  { label: 'Graphics', items: ['URP', 'HDRP', 'Shader Graph', 'HLSL', 'Compute Shaders', 'Volumetrics', 'Voxel Rendering', 'Runtime CSG'] },
+  { label: 'Systems', items: ['OOP / SOLID', 'State Machines', 'Procedural Generation', 'Physics', 'Pooling', 'Job System & Burst'] },
+  { label: 'AI & Networking', items: ['A* Pathfinding', 'NavMesh', 'Behaviour Trees', 'Mirror Networking', 'Multiplayer'] },
+  { label: 'Tools & Workflow', items: ['Editor Tooling', 'Custom Inspectors', 'SQLite', 'Firebase', 'Git / GitHub', 'Profiling', 'Steam'] },
 ];
