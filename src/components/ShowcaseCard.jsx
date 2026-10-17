@@ -73,26 +73,44 @@ export default function ShowcaseCard({ game, index }) {
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.6, delay: index * 0.15 }}
       className={`group relative rounded-2xl overflow-hidden border border-border-subtle/50 bg-bg-secondary ${
-        hasSlides ? 'grid md:grid-cols-5' : 'p-8'
+        hasSlides ? 'grid md:grid-cols-5 lg:grid-cols-2' : 'p-8'
       }`}
     >
       {/* Image carousel side */}
       {hasSlides && (
         <div
-          className="md:col-span-2 relative overflow-hidden bg-bg-card"
+          className="md:col-span-2 lg:col-span-1 relative overflow-hidden bg-bg-card md:p-4 lg:p-5 md:flex md:flex-col md:gap-3"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
-          onTouchStart={(e) => { touchX.current = e.touches[0].clientX; }}
-          onTouchEnd={(e) => {
-            if (touchX.current === null) return;
-            const dx = e.changedTouches[0].clientX - touchX.current;
-            touchX.current = null;
-            if (Math.abs(dx) < 40) return;
-            setPaused(true);
-            if (dx < 0) next(); else prev();
-          }}
         >
-          <div className="relative w-full aspect-[16/10] md:aspect-auto md:h-full md:min-h-[280px]">
+          {/* Blurred backdrop of the current slide */}
+          <AnimatePresence>
+            <motion.img
+              key={`bg-${current}`}
+              src={slides[current].type === 'video' ? slides[current].poster : slides[current].src}
+              alt=""
+              aria-hidden="true"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6 }}
+              className="absolute inset-0 w-full h-full object-cover scale-125 blur-2xl pointer-events-none"
+            />
+          </AnimatePresence>
+
+          {/* Main slide */}
+          <div
+            className="relative w-full aspect-[16/10] overflow-hidden bg-black/20 md:rounded-xl md:shadow-2xl md:shadow-black/50"
+            onTouchStart={(e) => { touchX.current = e.touches[0].clientX; }}
+            onTouchEnd={(e) => {
+              if (touchX.current === null) return;
+              const dx = e.changedTouches[0].clientX - touchX.current;
+              touchX.current = null;
+              if (Math.abs(dx) < 40) return;
+              setPaused(true);
+              if (dx < 0) next(); else prev();
+            }}
+          >
             <AnimatePresence mode="wait">
               {slides[current].type === 'video' ? (
                 <motion.div
@@ -110,7 +128,7 @@ export default function ShowcaseCard({ game, index }) {
                     muted
                     loop
                     playsInline
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-contain"
                   />
                   <div className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-black/50 text-white/80 text-[10px] font-mono flex items-center gap-1">
                     <Film size={10} />
@@ -122,70 +140,96 @@ export default function ShowcaseCard({ game, index }) {
                   key={current}
                   src={slides[current].src}
                   alt={`${game.title} — ${slides[current].label}`}
-                  initial={{ opacity: 0, scale: 1.05 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.35 }}
+                  className="absolute inset-0 w-full h-full object-contain"
                   loading="lazy"
                 />
               )}
             </AnimatePresence>
+
+            {/* Navigation arrows (always visible on touch, on hover for desktop) */}
+            {slides.length > 1 && (
+              <>
+                <button
+                  onClick={prev}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/50 text-white/80 hover:bg-black/70 hover:text-white transition-all md:opacity-0 md:group-hover:opacity-100"
+                  aria-label="Previous screenshot"
+                >
+                  <ChevronLeft size={18} />
+                </button>
+                <button
+                  onClick={next}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/50 text-white/80 hover:bg-black/70 hover:text-white transition-all md:opacity-0 md:group-hover:opacity-100"
+                  aria-label="Next screenshot"
+                >
+                  <ChevronRight size={18} />
+                </button>
+              </>
+            )}
+
+            {/* Dot indicators (mobile — desktop uses the thumbnail strip) */}
+            {slides.length > 1 && (
+              <div className="md:hidden absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-black/45 backdrop-blur-sm">
+                {slides.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrent(i)}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      i === current
+                        ? 'bg-white w-3'
+                        : 'bg-white/40 hover:bg-white/60'
+                    }`}
+                    aria-label={`Go to slide ${i + 1}`}
+                  />
+                ))}
+                <button
+                  onClick={() => setPaused((p) => !p)}
+                  className="ml-2 p-0.5 rounded-full text-white/60 hover:text-white/90 transition-colors"
+                  aria-label={paused ? 'Resume slideshow' : 'Pause slideshow'}
+                >
+                  {paused ? <Play size={10} /> : <Pause size={10} />}
+                </button>
+              </div>
+            )}
           </div>
 
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-70% to-bg-secondary/70 md:from-0% md:bg-gradient-to-l md:to-bg-secondary/90 pointer-events-none" />
-
-          {/* Navigation arrows (visible on hover) */}
+          {/* Thumbnail strip (desktop) */}
           {slides.length > 1 && (
-            <>
-              <button
-                onClick={prev}
-                className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/50 text-white/80 hover:bg-black/70 hover:text-white transition-all md:opacity-0 md:group-hover:opacity-100"
-                aria-label="Previous screenshot"
-              >
-                <ChevronLeft size={18} />
-              </button>
-              <button
-                onClick={next}
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/50 text-white/80 hover:bg-black/70 hover:text-white transition-all md:opacity-0 md:group-hover:opacity-100"
-                aria-label="Next screenshot"
-              >
-                <ChevronRight size={18} />
-              </button>
-            </>
-          )}
-
-          {/* Dot indicators */}
-          {slides.length > 1 && (
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
-              {slides.map((_, i) => (
+            <div className="relative hidden md:grid grid-cols-4 lg:grid-cols-5 gap-2">
+              {slides.map((slide, i) => (
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
-                  className={`w-2 h-2 rounded-full transition-all ${
+                  className={`relative aspect-video rounded-md overflow-hidden bg-black/40 ring-2 transition-all ${
                     i === current
-                      ? 'bg-white w-3'
-                      : 'bg-white/40 hover:bg-white/60'
+                      ? 'ring-accent opacity-100'
+                      : 'ring-transparent opacity-60 hover:opacity-100'
                   }`}
-                  aria-label={`Go to slide ${i + 1}`}
-                />
+                  aria-label={`Show ${slide.type === 'video' ? 'video' : 'screenshot'} ${i + 1}`}
+                >
+                  <img
+                    src={slide.type === 'video' ? slide.poster : slide.src}
+                    alt=""
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  {slide.type === 'video' && (
+                    <span className="absolute inset-0 flex items-center justify-center bg-black/40 text-white">
+                      <Play size={14} />
+                    </span>
+                  )}
+                </button>
               ))}
-              {/* Pause/play indicator */}
-              <button
-                onClick={() => setPaused((p) => !p)}
-                className="ml-2 p-0.5 rounded-full text-white/60 hover:text-white/90 transition-colors"
-                aria-label={paused ? 'Resume slideshow' : 'Pause slideshow'}
-              >
-                {paused ? <Play size={10} /> : <Pause size={10} />}
-              </button>
             </div>
           )}
         </div>
       )}
 
       {/* Content side */}
-      <div className={`p-5 sm:p-8 flex flex-col justify-center ${hasSlides ? 'md:col-span-3' : ''}`}>
+      <div className={`p-5 sm:p-8 flex flex-col justify-center ${hasSlides ? 'md:col-span-3 lg:col-span-1' : ''}`}>
         <div className="flex items-start justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
