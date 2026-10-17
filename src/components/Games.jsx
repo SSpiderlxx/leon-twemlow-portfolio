@@ -17,7 +17,7 @@ export default function Games() {
           <span className="neon-cyan font-mono text-lg">STAGE 02</span>
           <h2 className="section-heading mt-2">Games</h2>
           <p className="mt-3 text-text-secondary max-w-xl">
-            Games I&apos;ve shipped and contributed to — from co-op sandbox adventures to souls-like RPGs.
+            Games I&apos;ve shipped and contributed to, from co-op sandbox adventures to souls-like RPGs.
           </p>
         </motion.div>
 

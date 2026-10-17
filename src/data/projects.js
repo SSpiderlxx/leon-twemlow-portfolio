@@ -10,7 +10,7 @@ export const assetStoreProducts = [
     tagline: 'Meshless Voxel Engine for Unity 6 URP',
     status: 'Asset Store',
     price: '$70',
-    description: 'A raymarched voxel engine for Unity URP with real-time water, infinite biome worlds, destructible terrain with structural physics, voxel cone traced GI and volumetric lighting — all rendered without meshes. Voxels are raymarched directly on the GPU through a custom URP Render Graph feature.',
+    description: 'A raymarched voxel engine for Unity URP with real-time water, infinite biome worlds, destructible terrain with structural physics, voxel cone traced GI and volumetric lighting, all rendered without meshes. Voxels are raymarched directly on the GPU through a custom URP Render Graph feature.',
     features: [
       'Meshless GPU raymarching via a URP renderer feature',
       'Empty-space skipping with fine DDA traversal',
@@ -40,13 +40,13 @@ export const assetStoreProducts = [
     tagline: 'Booleans, Shatter & Denting',
     status: 'Asset Store',
     price: '$25',
-    description: 'A high-performance runtime CSG toolkit for Unity. Perform fast mesh booleans (union, subtract, intersect), Voronoi shattering and impact mesh deformation at runtime — all accelerated by the C# Job System and Burst, with zero GC allocations.',
+    description: 'A high-performance runtime CSG toolkit for Unity. Perform fast mesh booleans (union, subtract, intersect), Voronoi shattering and impact mesh deformation at runtime, all accelerated by the C# Job System and Burst, with zero GC allocations.',
     features: [
       'Runtime mesh booleans: union, subtract, intersect',
       'Voronoi shattering for destructible objects',
       'Impact denting & mesh deformation',
       'C# Job System & Burst-accelerated pipeline',
-      'Native buffers — zero GC allocations at runtime',
+      'Native buffers with zero GC allocations at runtime',
       'Async collider baking on background threads',
       'Built-in, URP & HDRP compatible',
       'Full, well-commented C# source',
@@ -64,10 +64,10 @@ export const assetStoreProducts = [
   {
     id: 'urp-volumetric-lighting',
     title: 'URP Volumetric Lighting System',
-    tagline: 'Lighting, Fog, Clouds & Explosions — Unity 6 URP',
+    tagline: 'Lighting, Fog, Clouds & Explosions for Unity 6 URP',
     status: 'Asset Store',
     price: '$20',
-    description: 'Four raymarched volumetric effects for Unity 6 URP — lighting, fog, clouds and explosions. Compute-shader driven and controlled through Post Process Volumes, with plug-and-play prefabs. Built on 3D fBm noise, a custom raymarching pass through URP\'s Render Graph and Henyey-Greenstein phase scattering.',
+    description: 'Four raymarched volumetric effects for Unity 6 URP: lighting, fog, clouds and explosions. Compute-shader driven and controlled through Post Process Volumes, with plug-and-play prefabs. Built on 3D fBm noise, a custom raymarching pass through URP\'s Render Graph and Henyey-Greenstein phase scattering.',
     features: [
       'Screen-space volumetric lighting via Post Process Volume',
       'Compute-shader fog with up to 64 FogVolume zones',
@@ -152,7 +152,7 @@ export const projects = [
   {
     id: 'samsara',
     title: 'Samsara',
-    tagline: 'Souls-like Action RPG — Contracted Developer',
+    tagline: 'Souls-like Action RPG | Contracted Developer',
     category: 'game',
     status: 'Early Access',
     description: 'Contracted as a developer on Samsara, a souls-like action-RPG inspired by the Tibetan Book of the Dead. Trapped after life in a dreamlike, cyclic purgatory, seek a way to escape within 49 days or be eternally reincarnated as six unique avatars based on the karma of your past life.',
@@ -188,7 +188,7 @@ export const projects = [
     features: [
       'Procedurally generated cave systems with layered Perlin noise terrain',
       'Real-time unit command in isometric perspective',
-      'Resource gathering — stone, coal, iron, and more',
+      'Resource gathering: stone, coal, iron, and more',
       'Monster camps that scale with distance from spawn',
       'Fog of war exploration across a fully generated underground world',
       'Save and load system to continue your exile across sessions',
@@ -208,12 +208,28 @@ export const projects = [
     },
   },
   {
+    id: 'twemvox',
+    title: 'TwemVox',
+    tagline: 'Raymarched Voxel Game Engine in C++ & Vulkan',
+    category: 'engine',
+    status: 'In Development',
+    description: 'A standalone raymarched voxel game engine written in C++ on Vulkan, built on the rendering and simulation technology behind my Unity Raymarch Voxel Engine.',
+    features: [],
+    techStack: ['C++', 'Vulkan', 'Raymarching', 'Voxel Rendering'],
+    links: {},
+    images: {
+      header: '',
+      capsule: '',
+      screenshots: [],
+    },
+  },
+  {
     id: 'rts-framework',
     title: 'RTS Framework',
     tagline: 'Reusable RTS Systems for Unity',
     category: 'engine',
     status: 'In Development',
-    description: 'My next major Asset Store product — a reusable RTS systems framework focused on production-ready architecture and tooling: unit selection and command, pathfinding, resource economies and building placement, designed to drop into new projects.',
+    description: 'My next major Asset Store product: a reusable RTS systems framework focused on production-ready architecture and tooling: unit selection and command, pathfinding, resource economies and building placement, designed to drop into new projects.',
     features: [],
     techStack: ['Unity 6', 'C#', 'Editor Tooling'],
     links: {},
@@ -241,9 +257,7 @@ export const projects = [
       'Steamworks & multiplayer networking',
     ],
     techStack: ['Unity', 'C#', 'Steamworks.NET'],
-    links: {
-      github: 'https://github.com/SSpiderlxx/TileMapEngine',
-    },
+    links: {},
     images: {
       header: '',
       capsule: '',
@@ -259,9 +273,7 @@ export const projects = [
     description: 'A 2D game engine built from scratch in C++.',
     features: [],
     techStack: ['C++'],
-    links: {
-      github: 'https://github.com/SSpiderlxx/Cpp2DGameEngine',
-    },
+    links: {},
     images: {
       header: '',
       capsule: '',
@@ -277,9 +289,7 @@ export const projects = [
     description: 'A plugin adding C# scripting support to the IOLITE game engine.',
     features: [],
     techStack: ['C#', 'IOLITE Engine'],
-    links: {
-      github: 'https://github.com/SSpiderlxx/IOLITE-C-SHARP-Plugin',
-    },
+    links: {},
     images: {
       header: '',
       capsule: '',
@@ -375,14 +385,14 @@ export const experience = [
     org: 'Self-Employed / twemlow.dev',
     period: '2020 – Present',
     points: [
-      'Design, engineer and commercially publish Unity developer tools on the Asset Store — Runtime CSG, Raymarch Voxel Engine, URP Volumetric Lighting System and Hierarchy Rules & Tags Pro — owning architecture, optimisation, packaging, documentation, pricing, updates and customer support.',
+      'Design, engineer and commercially publish Unity developer tools on the Asset Store (Runtime CSG, Raymarch Voxel Engine, URP Volumetric Lighting System and Hierarchy Rules & Tags Pro), owning architecture, optimisation, packaging, documentation, pricing, updates and customer support.',
       'Created and shipped Echoes of the Hive on Steam, independently in Unity/C#: custom tilemap & collision systems, procedural generation, A* AI, physics gameplay, UI, persistence and performance optimisation.',
       'Use Asset Store analytics and customer feedback to prioritise development and guide product strategy; currently building an RTS Framework as the next major product.',
       'Manage Git/GitHub, build pipelines, platform targeting and Steam deployment; integrated Firebase and SQLite for persistent and cloud-connected data.',
     ],
   },
   {
-    role: 'Unreal Engine 5 Developer — Remote Contract',
+    role: 'Unreal Engine 5 Developer (Remote Contract)',
     org: 'Infinity27',
     period: 'Nov 2025 – Jan 2026',
     points: [

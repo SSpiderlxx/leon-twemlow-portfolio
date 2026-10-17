@@ -23,7 +23,7 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
         >
           <span className="neon-cyan font-mono text-lg">STAGE 03</span>
-          <h2 className="section-heading mt-2">Open Source &amp; Projects</h2>
+          <h2 className="section-heading mt-2">Projects</h2>
           <p className="mt-3 text-text-secondary max-w-xl">
             Game engines, frameworks, plugins and apps I&apos;ve built.
           </p>

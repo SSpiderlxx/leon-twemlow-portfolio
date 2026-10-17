@@ -39,7 +39,7 @@
     font-family: var(--font-pixel);
     letter-spacing: 0.01em;
   }
-  /* VT323 has a small x-height — normalise it so labels stay legible */
+  /* VT323 has a small x-height, so normalise it so labels stay legible */
   .font-mono {
     font-size-adjust: 0.62;
     letter-spacing: 0.02em;

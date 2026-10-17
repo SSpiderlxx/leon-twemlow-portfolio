@@ -15,7 +15,7 @@ const highlights = [
   },
   {
     icon: <Code2 size={20} />,
-    stat: '3',
+    stat: '2',
     label: 'Game Engines Built',
   },
   {
@@ -59,7 +59,7 @@ export default function About() {
               owning everything from engineering and optimisation to release,
               documentation, analytics and customer support. My strengths are C#
               and C++, gameplay architecture, graphics and rendering, AI and
-              performance — from the{' '}
+              performance. My work ranges from the{' '}
               <span className="text-text-primary">Raymarch Voxel Engine</span> to the
               tilemap tech powering{' '}
               <span className="text-text-primary">Echoes of the Hive</span>.

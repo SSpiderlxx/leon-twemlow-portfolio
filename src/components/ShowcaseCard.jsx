@@ -139,7 +139,7 @@ export default function ShowcaseCard({ game, index }) {
                 <motion.img
                   key={current}
                   src={slides[current].src}
-                  alt={`${game.title} — ${slides[current].label}`}
+                  alt={`${game.title}: ${slides[current].label}`}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -170,7 +170,7 @@ export default function ShowcaseCard({ game, index }) {
               </>
             )}
 
-            {/* Dot indicators (mobile — desktop uses the thumbnail strip) */}
+            {/* Dot indicators (mobile only; desktop uses the thumbnail strip) */}
             {slides.length > 1 && (
               <div className="md:hidden absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-none bg-black/45 backdrop-blur-sm">
                 {slides.map((_, i) => (

@@ -18,7 +18,7 @@ export default function AssetStore() {
             <span className="neon-cyan font-mono text-lg">STAGE 01</span>
             <h2 className="section-heading mt-2">Unity Asset Store</h2>
             <p className="mt-3 text-text-secondary max-w-xl">
-              Commercial developer tools I design, build, ship and support — rendering
+              Commercial developer tools I design, build, ship and support: rendering
               tech, runtime geometry and editor tooling for Unity 6.
             </p>
           </div>
