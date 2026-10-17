@@ -61,10 +61,22 @@ export default function Experience() {
               {education.map((item) => (
                 <div
                   key={item.title}
-                  className="p-4 rounded-xl bg-bg-secondary border-2 border-border-subtle pixel-shadow"
+                  className={`p-4 rounded-xl bg-bg-secondary border-2 pixel-shadow ${
+                    item.current ? 'border-accent-2/60' : 'border-border-subtle'
+                  }`}
                 >
-                  <p className="font-medium">{item.title}</p>
+                  <div className="flex items-start justify-between gap-3">
+                    <p className="font-medium">{item.title}</p>
+                    {item.current && (
+                      <span className="shrink-0 px-2 py-0.5 text-xs font-mono neon-cyan border border-accent-2/50">
+                        NOW<span className="cursor-blink">_</span>
+                      </span>
+                    )}
+                  </div>
                   <p className="text-sm text-text-secondary">{item.org}</p>
+                  {item.note && (
+                    <p className="mt-2 text-sm text-text-secondary leading-relaxed">{item.note}</p>
+                  )}
                   <p className="text-xs font-mono text-accent mt-1">{item.period}</p>
                 </div>
               ))}

@@ -403,6 +403,13 @@ export const experience = [
 ];
 
 export const education = [
+  {
+    title: 'Computer Science Fundamentals',
+    org: 'Self-directed study',
+    period: 'Ongoing',
+    current: true,
+    note: 'Going deeper into core algorithms, data structures and theoretical computer science to add more formal rigour to the engineering I already do.',
+  },
   { title: 'BA (Hons) Games Technologies', org: 'Newcastle College University', period: '2023 – 2026' },
   { title: 'UE5 Skills Boot Camp', org: 'Infinity27', period: '2025' },
 ];
