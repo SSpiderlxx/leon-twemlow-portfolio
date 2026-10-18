@@ -73,7 +73,7 @@ export default function Experience() {
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-text-secondary">{item.org}</p>
+                  {item.org && <p className="text-sm text-text-secondary">{item.org}</p>}
                   {item.grade && (
                     <p className="mt-1 text-sm text-text-primary">Grade: {item.grade}</p>
                   )}
