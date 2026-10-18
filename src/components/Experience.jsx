@@ -74,6 +74,9 @@ export default function Experience() {
                     )}
                   </div>
                   <p className="text-sm text-text-secondary">{item.org}</p>
+                  {item.grade && (
+                    <p className="mt-1 text-sm text-text-primary">Grade: {item.grade}</p>
+                  )}
                   {item.note && (
                     <p className="mt-2 text-sm text-text-secondary leading-relaxed">{item.note}</p>
                   )}

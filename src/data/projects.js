@@ -412,6 +412,7 @@ export const education = [
   },
   { title: 'BA (Hons) Games Technologies', org: 'Newcastle College University', period: '2023 – 2026' },
   { title: 'UE5 Skills Boot Camp', org: 'Infinity27', period: '2025' },
+  { title: 'HND Game Design & Development', org: 'Newcastle College', period: '2021 – 2023', grade: 'DDD (Distinctions)' },
 ];
 
 export const skillGroups = [
