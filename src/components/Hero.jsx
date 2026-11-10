@@ -10,7 +10,7 @@ const fade = (delay = 0) => ({
 
 const proof = [
   { icon: <Gamepad2 size={15} />, label: 'Commercial game on Steam' },
-  { icon: <ShoppingBag size={15} />, label: '4 Unity Asset Store tools' },
+  { icon: <ShoppingBag size={15} />, label: '5 Unity Asset Store tools' },
   { icon: <Clock size={15} />, label: '5+ years shipping software' },
   { icon: <MapPin size={15} />, label: 'UK-based, working remotely' },
 ];

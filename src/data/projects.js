@@ -5,6 +5,32 @@ const shots = (slug, n) =>
 
 export const assetStoreProducts = [
   {
+    id: 'rts-framework',
+    title: 'RTS Framework Template',
+    tagline: 'Formation Battles & Castle Sieges for Unity 6 URP',
+    status: 'Asset Store',
+    price: '$20',
+    description: 'Build formation battles and castle sieges in Unity 6. You command companies of soldiers rather than single units: they march and turn in rank and file, lose heart under fire, break, flee and rally, man walls, batter down gates and fight over key points. Full readable C# source, set up from the Inspector, with Scene-view tools and two playable demo scenes.',
+    features: [
+      'Drag-to-draw formations that keep rank and order',
+      'Melee & ranged units with stances and line of sight',
+      'Morale, routing and rallying',
+      'Procedural walls, towers & faction-owned gates',
+      'Catapults breach walls, rams smash gates, NavMesh updates live',
+      'Deployment phase, capture points & battle timer',
+      'Themed HUD driven by a single UI Theme asset',
+      'Scene-view wall & gate tools plus a 35-page manual',
+    ],
+    techStack: ['Unity 6', 'C#', 'URP', 'AI Navigation', 'Input System', 'Editor Tooling'],
+    links: {
+      assetStore: 'https://assetstore.unity.com/packages/templates/systems/rts-framework-template-2026-410844',
+    },
+    images: {
+      header: '/images/asset-store/rts-framework/key.jpg',
+      screenshots: shots('rts-framework', 11),
+    },
+  },
+  {
     id: 'raymarch-voxel-engine',
     title: 'Raymarch Voxel Engine',
     tagline: 'Meshless Voxel Engine for Unity 6 URP',
@@ -224,22 +250,6 @@ export const projects = [
     },
   },
   {
-    id: 'rts-framework',
-    title: 'RTS Framework',
-    tagline: 'Reusable RTS Systems for Unity',
-    category: 'engine',
-    status: 'In Development',
-    description: 'Our next major Asset Store product: a reusable RTS systems framework focused on production-ready architecture and tooling: unit selection and command, pathfinding, resource economies and building placement, designed to drop into new projects.',
-    features: [],
-    techStack: ['Unity 6', 'C#', 'Editor Tooling'],
-    links: {},
-    images: {
-      header: '',
-      capsule: '',
-      screenshots: [],
-    },
-  },
-  {
     id: 'tilemap-engine',
     title: 'TileMapEngine',
     tagline: 'Unity Tile Map Game Engine',
@@ -385,9 +395,9 @@ export const experience = [
     org: 'Self-Employed / twemlow.dev',
     period: '2020 – Present',
     points: [
-      'Design, engineer and commercially publish Unity developer tools on the Asset Store (Runtime CSG, Raymarch Voxel Engine, URP Volumetric Lighting System and Hierarchy Rules & Tags Pro), owning architecture, optimisation, packaging, documentation, pricing, updates and customer support.',
+      'Design, engineer and commercially publish Unity developer tools on the Asset Store (Runtime CSG, Raymarch Voxel Engine, URP Volumetric Lighting System, Hierarchy Rules & Tags Pro and RTS Framework Template), owning architecture, optimisation, packaging, documentation, pricing, updates and customer support.',
       'Created and shipped Echoes of the Hive on Steam, independently in Unity/C#: custom tilemap & collision systems, procedural generation, A* AI, physics gameplay, UI, persistence and performance optimisation.',
-      'Use Asset Store analytics and customer feedback to prioritise development and guide product strategy; currently building an RTS Framework as the next major product.',
+      'Use Asset Store analytics and customer feedback to prioritise development and guide product strategy.',
       'Manage Git/GitHub, build pipelines, platform targeting and Steam deployment; integrated Firebase and SQLite for persistent and cloud-connected data.',
     ],
   },
