@@ -213,7 +213,7 @@ export const projects = [
     tagline: 'Raymarched Voxel Game Engine in C++ & Vulkan',
     category: 'engine',
     status: 'In Development',
-    description: 'A standalone raymarched voxel game engine written in C++ on Vulkan, built on the rendering and simulation technology behind my Unity Raymarch Voxel Engine.',
+    description: 'A standalone raymarched voxel game engine written in C++ on Vulkan, built on the rendering and simulation technology behind our Unity Raymarch Voxel Engine.',
     features: [],
     techStack: ['C++', 'Vulkan', 'Raymarching', 'Voxel Rendering'],
     links: {},
@@ -229,7 +229,7 @@ export const projects = [
     tagline: 'Reusable RTS Systems for Unity',
     category: 'engine',
     status: 'In Development',
-    description: 'My next major Asset Store product: a reusable RTS systems framework focused on production-ready architecture and tooling: unit selection and command, pathfinding, resource economies and building placement, designed to drop into new projects.',
+    description: 'Our next major Asset Store product: a reusable RTS systems framework focused on production-ready architecture and tooling: unit selection and command, pathfinding, resource economies and building placement, designed to drop into new projects.',
     features: [],
     techStack: ['Unity 6', 'C#', 'Editor Tooling'],
     links: {},
@@ -408,7 +408,7 @@ export const education = [
     org: 'Self-directed study',
     period: 'Ongoing',
     current: true,
-    note: 'Going deeper into core algorithms, data structures and theoretical computer science to add more formal rigour to the engineering I already do.',
+    note: 'Going deeper into core algorithms, data structures and theoretical computer science to add more formal rigour to the engineering already being done.',
   },
   { title: 'BA (Hons) Games Technologies', org: 'Newcastle College University', period: '2023 – 2026' },
   { title: 'UE5 Skills Boot Camp', org: 'Infinity27', period: '2025' },
@@ -423,4 +423,35 @@ export const skillGroups = [
   { label: 'Systems', items: ['OOP / SOLID', 'State Machines', 'Procedural Generation', 'Physics', 'Pooling', 'Job System & Burst'] },
   { label: 'AI & Networking', items: ['A* Pathfinding', 'NavMesh', 'Behaviour Trees', 'Mirror Networking', 'Multiplayer'] },
   { label: 'Tools & Workflow', items: ['Editor Tooling', 'Custom Inspectors', 'SQLite', 'Firebase', 'Git / GitHub', 'Profiling', 'Steam'] },
+];
+
+// Verified customer reviews from the Unity Asset Store (quoted as written).
+export const reviews = [
+  {
+    id: 'csg-tree-chopping',
+    product: 'Runtime CSG',
+    productUrl: 'https://assetstore.unity.com/packages/tools/modeling/runtime-csg-booleans-shatter-denting-396698',
+    rating: 5,
+    title: 'Amazing asset, and well optimized',
+    body: 'I used this asset to make procedural tree chopping for my game, it works really well, and the publisher was really helpful when i needed assistance.',
+    date: 'Oct 2026',
+  },
+  {
+    id: 'csg-it-just-works',
+    product: 'Runtime CSG',
+    productUrl: 'https://assetstore.unity.com/packages/tools/modeling/runtime-csg-booleans-shatter-denting-396698',
+    rating: 5,
+    title: 'It Just Works.',
+    body: "Was looking for something I could use with imported meshes.. a lot of the csg tools I tried out caused weird glitching. New Meshes to be formed on subtraction, etc. This one took me 2 minutes to import, add the scripts to my source and target objects.. and run the subtraction. That's it. 2 minutes. This just works.",
+    date: 'Sep 2026',
+  },
+  {
+    id: 'volumetric-good-support',
+    product: 'URP Volumetric Lighting System',
+    productUrl: 'https://assetstore.unity.com/packages/vfx/urp-volumetric-lighting-system-393018',
+    rating: 5,
+    title: 'Works as advertised, good support',
+    body: 'Looks nice and the author responded quickly to a support question.',
+    date: 'Sep 2026',
+  },
 ];

@@ -1,92 +1,104 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Gamepad2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Gamepad2, ShoppingBag, MapPin, Clock } from 'lucide-react';
+
+const fade = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
+});
+
+const proof = [
+  { icon: <Gamepad2 size={15} />, label: 'Commercial game on Steam' },
+  { icon: <ShoppingBag size={15} />, label: '4 Unity Asset Store tools' },
+  { icon: <Clock size={15} />, label: '5+ years shipping software' },
+  { icon: <MapPin size={15} />, label: 'UK-based, working remotely' },
+];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Particle grid background */}
-      <div className="absolute inset-0 particle-grid" />
+    <section className="relative overflow-hidden pt-28 sm:pt-36 pb-20 sm:pb-28 px-4 sm:px-6">
+      <div className="absolute inset-0 hero-glow pointer-events-none" />
+      <div className="absolute inset-0 hero-grid pointer-events-none" />
 
-      {/* Synthwave sun + scrolling grid floor */}
-      <div className="absolute inset-0 bg-gradient-to-b from-bg-primary via-[#1a0f3d] to-[#2a0f45]" />
-      <div className="synth-sun absolute left-1/2 -translate-x-1/2 bottom-[22%] w-[240px] h-[240px] sm:w-[380px] sm:h-[380px] rounded-full opacity-45" />
-      <div className="absolute inset-x-0 bottom-[22%] h-px bg-accent/60 shadow-[0_0_20px_4px_rgba(255,61,154,0.5)]" />
-      <div className="synth-floor" />
-      <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/80 via-transparent via-75% to-bg-primary" />
+      <div className="relative max-w-6xl mx-auto grid lg:grid-cols-[1.1fr_1fr] gap-14 lg:gap-12 items-center">
+        <div>
+          <motion.div {...fade(0)}>
+            <span className="inline-flex items-center gap-2.5 pl-3 pr-3.5 py-1.5 rounded-full border border-border-subtle bg-white/[0.03] text-sm text-text-secondary">
+              <span className="status-dot" />
+              Taking on new client projects
+            </span>
+          </motion.div>
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 pt-20 pb-24 max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-        >
-          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-none bg-bg-primary/70 border-2 border-accent/60 text-accent text-sm sm:text-lg font-mono whitespace-nowrap mb-6">
-            <Gamepad2 size={14} />
-            Unity / Gameplay Programmer
-            <span className="cursor-blink">_</span>
+          <motion.h1
+            {...fade(0.08)}
+            className="mt-6 text-[2.5rem] leading-[1.05] sm:text-6xl lg:text-[4.25rem] font-semibold"
+          >
+            We build software &amp; tools{' '}
+            <span className="text-gradient">that ship.</span>
+          </motion.h1>
+
+          <motion.p
+            {...fade(0.16)}
+            className="mt-6 text-lg text-text-secondary max-w-xl leading-relaxed"
+          >
+            Custom software and developer tools in C#, C++ and Unity, from desktop utilities
+            and editor extensions to rendering and gameplay systems. We take projects from idea
+            to release, with clean, documented code you can build on.
+          </motion.p>
+
+          <motion.div {...fade(0.24)} className="mt-9 flex flex-col sm:flex-row gap-3">
+            <Link to="/contact" className="btn-primary">
+              Start a project <ArrowRight size={16} />
+            </Link>
+            <Link to="/work" className="btn-secondary">
+              See our work
+            </Link>
+          </motion.div>
+
+          <motion.ul
+            {...fade(0.32)}
+            className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 max-w-lg"
+          >
+            {proof.map((p) => (
+              <li key={p.label} className="flex items-center gap-2.5 text-sm text-text-secondary">
+                <span className="text-accent-2">{p.icon}</span>
+                {p.label}
+              </li>
+            ))}
+          </motion.ul>
+        </div>
+
+        {/* Visual */}
+        <motion.div {...fade(0.2)} className="relative">
+          <div className="absolute -inset-6 bg-accent/20 blur-3xl rounded-full opacity-40 pointer-events-none" />
+          <div className="relative rounded-2xl border border-border-subtle bg-bg-secondary p-2 shadow-2xl shadow-black/60">
+            <div className="flex items-center gap-1.5 px-3 py-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
+              <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
+              <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
+              <span className="ml-3 text-xs font-mono text-text-secondary/80 truncate">
+                raymarch-voxel-engine / unity 6 urp
+              </span>
+            </div>
+            <img
+              src="/images/asset-store/raymarch-voxel-engine/key.jpg"
+              alt="Raymarch Voxel Engine, a Unity Asset Store product built by twemlow.dev"
+              className="w-full aspect-[16/10] object-cover rounded-xl"
+            />
+          </div>
+
+          <div className="absolute -bottom-6 -left-4 sm:-left-8 card rounded-xl! px-4 py-3 shadow-xl shadow-black/50 backdrop-blur">
+            <p className="text-xs text-text-secondary">Also on the Asset Store</p>
+            <p className="font-display font-semibold">Runtime CSG</p>
+            <p className="text-xs text-accent-2 font-mono mt-0.5">Burst · Jobs · 0 GC</p>
+          </div>
+          <div className="hidden sm:block absolute -top-5 -right-4 card rounded-xl! px-4 py-3 shadow-xl shadow-black/50">
+            <p className="text-xs text-text-secondary">Available on</p>
+            <p className="font-display font-semibold">Unity Asset Store</p>
           </div>
         </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
-          className="text-[2.6rem] sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.95] sm:leading-[0.9] drop-shadow-[4px_4px_0_rgba(0,0,0,0.6)]"
-        >
-          Building Worlds,
-          <br />
-          <span className="text-gradient">One Tile at a Time</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
-          className="mt-6 text-base sm:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed"
-        >
-          Technical game developer shipping commercial games and Unity developer tools.
-          Creator of <span className="text-text-primary">Echoes of the Hive</span>, the{' '}
-          <span className="text-text-primary">Raymarch Voxel Engine</span> and{' '}
-          <span className="text-text-primary">Runtime CSG</span>.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.45, ease: 'easeOut' }}
-          className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-xs sm:max-w-none mx-auto"
-        >
-          <a
-            href="#asset-store"
-            className="px-8 py-3 rounded-none whitespace-nowrap text-center pixel-btn bg-accent hover:bg-accent/90 text-bg-primary font-semibold transition-all active:scale-95"
-          >
-            ▶ View My Work
-          </a>
-          <a
-            href="#contact"
-            className="px-8 py-3 rounded-none whitespace-nowrap text-center bg-bg-primary/70 backdrop-blur-sm border border-border-subtle hover:border-accent/50 text-text-secondary hover:text-accent font-medium transition-all"
-          >
-            Get in Touch
-          </a>
-        </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.a
-        href="#asset-store"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-text-secondary hover:text-accent transition-colors"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <ArrowDown size={24} />
-        </motion.div>
-      </motion.a>
     </section>
   );
 }

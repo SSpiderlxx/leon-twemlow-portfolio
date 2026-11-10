@@ -1,57 +1,49 @@
-import { motion } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import { Reveal } from './Section';
 import { artPacks } from '../data/projects';
 
 export default function ArtPacks() {
   return (
-    <section id="art-packs" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6">
+    <section id="art-packs" className="relative pb-20 sm:pb-28 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="neon-cyan font-mono text-lg">STAGE 04</span>
-          <h2 className="section-heading mt-2">Game Art Packs</h2>
-          <p className="mt-3 text-text-secondary max-w-xl">
-            Free and premium pixel art &amp; 3D asset packs on Itch.io and the Unity Asset Store.
-          </p>
-        </motion.div>
+        <Reveal className="flex items-end justify-between gap-4">
+          <div>
+            <h3 className="text-xl font-semibold">Game art packs</h3>
+            <p className="mt-1 text-sm text-text-secondary">
+              Free and premium pixel art &amp; 3D packs on Itch.io and the Unity Asset Store.
+            </p>
+          </div>
+        </Reveal>
 
-        <div className="mt-8 sm:mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3">
           {artPacks.map((pack, i) => (
-            <motion.a
-              key={pack.id}
-              href={pack.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="group relative rounded-xl border-2 border-border-subtle bg-bg-secondary overflow-hidden hover:border-accent/60 pixel-shadow hover:-translate-y-1"
-            >
-              <div className="aspect-[3/4] sm:aspect-video overflow-hidden bg-bg-card">
-                <img
-                  src={pack.image}
-                  alt={pack.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-
-              <div className="p-4">
-                <h3 className="text-base font-bold group-hover:text-accent transition-colors">
-                  {pack.title}
-                </h3>
-                <p className="text-sm text-text-secondary mt-0.5">{pack.subtitle}</p>
-
-                <span className="mt-3 inline-flex items-center gap-1 text-xs text-accent font-mono">
-                  View on {pack.store || 'Itch.io'} <ExternalLink size={10} />
-                </span>
-              </div>
-            </motion.a>
+            <Reveal key={pack.id} delay={i * 0.04} y={16}>
+              <a
+                href={pack.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block card card-hover overflow-hidden rounded-xl!"
+                title={`${pack.title}: ${pack.subtitle}`}
+              >
+                <div className="aspect-square overflow-hidden bg-bg-card">
+                  <img
+                    src={pack.image}
+                    alt={pack.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    style={{ imageRendering: 'pixelated' }}
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-3">
+                  <p className="text-xs font-medium leading-snug line-clamp-2 group-hover:text-text-primary">
+                    {pack.title}
+                  </p>
+                  <span className="mt-1.5 inline-flex items-center gap-0.5 text-[11px] text-text-secondary">
+                    {pack.store || 'Itch.io'} <ArrowUpRight size={11} />
+                  </span>
+                </div>
+              </a>
+            </Reveal>
           ))}
         </div>
       </div>

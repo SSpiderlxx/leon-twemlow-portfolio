@@ -1,67 +1,98 @@
-import { motion } from 'framer-motion';
-import { Mail, MapPin, ArrowRight, Briefcase } from 'lucide-react';
+import { Mail, MapPin, ArrowRight, Briefcase, Check } from 'lucide-react';
+import { Reveal } from './Section';
 
-export default function Contact() {
+const email = 'leon@twemlow.dev';
+
+const enquiryBody = [
+  'Hi,',
+  '',
+  'What we want to build:',
+  '',
+  'Engine / platform:',
+  '',
+  'Timeline:',
+  '',
+  'Budget range:',
+  '',
+  'Links (repo, game, references):',
+  '',
+].join('\n');
+
+const mailto = `mailto:${email}?subject=${encodeURIComponent('Project enquiry')}&body=${encodeURIComponent(enquiryBody)}`;
+
+const include = [
+  'What you want to build and why',
+  'Engine, platform or tech stack',
+  'Rough timeline and budget range',
+  'Any links: your repo, game or references',
+];
+
+export default function Contact({ first = false }) {
+  const Heading = first ? 'h1' : 'h2';
   return (
-    <section id="contact" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6">
+    <section
+      id="contact"
+      className={`relative px-4 sm:px-6 ${first ? 'pt-32 sm:pt-40 pb-20 sm:pb-28' : 'py-20 sm:py-28'}`}
+    >
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <span className="neon-cyan font-mono text-lg">STAGE 07</span>
-          <h2 className="section-heading mt-2">Get in Touch</h2>
-          <p className="mt-3 text-text-secondary max-w-lg mx-auto">
-            Hiring for a Unity or gameplay programming role, need help with an Asset Store tool, or want to collaborate?
-            I&apos;d love to hear from you.
-          </p>
-        </motion.div>
+        <Reveal>
+          <div className="relative overflow-hidden rounded-3xl border border-border-subtle bg-bg-secondary p-8 sm:p-12 lg:p-14">
+            <div className="absolute inset-0 hero-glow opacity-80 pointer-events-none" />
+            <div className="relative grid lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-14 items-center">
+              <div>
+                <p className="eyebrow">Contact</p>
+                <Heading className="section-heading mt-3">Have a project in mind?</Heading>
+                <p className="mt-4 text-text-secondary leading-relaxed max-w-lg">
+                  Tell us what you&apos;re building. Whether it&apos;s a custom tool, a piece of software
+                  or a Unity feature, we&apos;ll let you know honestly if we&apos;re the right fit
+                  and how we&apos;d approach it.
+                </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-12 max-w-md mx-auto"
-        >
-          <div className="rounded-2xl border-2 border-border-subtle bg-bg-secondary p-6 sm:p-8 text-center pixel-shadow">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-none bg-accent-dim border border-accent/20 mb-6">
-              <Mail className="text-accent" size={28} />
-            </div>
+                <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                  <a href={mailto} className="btn-primary">
+                    <Mail size={16} />
+                    Start a project enquiry
+                    <ArrowRight size={16} />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/leon-twemlow"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary"
+                  >
+                    <Briefcase size={16} />
+                    LinkedIn
+                  </a>
+                </div>
 
-            <p className="text-lg font-medium mb-2">Send me an email</p>
-            <p className="text-text-secondary text-sm mb-6">
-              For roles, contract work, asset support or collaboration requests.
-            </p>
+                <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-text-secondary">
+                  <a href={`mailto:${email}`} className="hover:text-text-primary transition-colors">
+                    {email}
+                  </a>
+                  <span className="inline-flex items-center gap-1.5">
+                    <MapPin size={14} />
+                    North Shields, UK · Remote worldwide
+                  </span>
+                </div>
+              </div>
 
-            <a
-              href="mailto:leon@twemlow.dev"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-none pixel-btn bg-accent hover:bg-accent/90 text-bg-primary font-semibold transition-all active:scale-95"
-            >
-              leon@twemlow.dev
-              <ArrowRight size={16} />
-            </a>
-
-            <div className="mt-6 pt-6 border-t border-border-subtle/30 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-text-secondary">
-              <span className="inline-flex items-center gap-2">
-                <MapPin size={14} />
-                North Shields, UK
-              </span>
-              <a
-                href="https://www.linkedin.com/in/leon-twemlow"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 hover:text-accent transition-colors"
-              >
-                <Briefcase size={14} />
-                LinkedIn
-              </a>
+              <div className="card rounded-2xl! p-6 sm:p-7 bg-bg-primary/60!">
+                <p className="font-semibold">Helpful to include</p>
+                <ul className="mt-4 space-y-3">
+                  {include.map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-text-secondary">
+                      <Check size={16} className="text-accent-2 shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-5 pt-5 border-t border-border-subtle text-sm text-text-secondary">
+                  Asset Store customer? Support requests go to the same address.
+                </p>
+              </div>
             </div>
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

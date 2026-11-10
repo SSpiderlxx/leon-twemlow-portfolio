@@ -1,92 +1,71 @@
-import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap } from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
+import Section, { SectionHeader, Reveal } from './Section';
 import { experience, education } from '../data/projects';
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="neon-cyan font-mono text-lg">STAGE 05</span>
-          <h2 className="section-heading mt-2">Experience</h2>
-        </motion.div>
+    <Section id="experience">
+      <SectionHeader eyebrow="Experience" title="Track record" />
 
-        <div className="mt-8 sm:mt-12 grid lg:grid-cols-3 gap-8 lg:gap-12">
-          {/* Work timeline */}
-          <div className="lg:col-span-2 relative border-l-2 border-dashed border-border-subtle pl-6 sm:pl-8 space-y-10">
-            {experience.map((job, i) => (
-              <motion.div
-                key={job.role}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative"
-              >
-                <span className="absolute -left-[33px] sm:-left-[41px] top-1 p-1.5 rounded-none bg-bg-primary border border-accent/40 text-accent">
-                  <Briefcase size={12} />
-                </span>
-                <p className="text-xs font-mono text-accent">{job.period}</p>
-                <h3 className="text-xl font-bold tracking-tight mt-1">{job.role}</h3>
-                <p className="text-sm text-text-secondary">{job.org}</p>
-                <ul className="mt-4 space-y-2">
+      <div className="mt-12 grid lg:grid-cols-3 gap-10 lg:gap-12">
+        <div className="lg:col-span-2 space-y-4">
+          {experience.map((job, i) => (
+            <Reveal key={job.role} delay={i * 0.08}>
+              <div className="card p-6 sm:p-7">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-semibold">{job.role}</h3>
+                    <p className="text-sm text-text-secondary mt-0.5">{job.org}</p>
+                  </div>
+                  <span className="chip shrink-0 self-start font-mono">{job.period}</span>
+                </div>
+                <ul className="mt-5 space-y-2.5">
                   {job.points.map((point) => (
-                    <li key={point} className="text-sm text-text-secondary leading-relaxed flex gap-2">
-                      <span className="w-1 h-1 rounded-none bg-accent shrink-0 mt-2" />
+                    <li key={point} className="text-sm text-text-secondary leading-relaxed flex gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0 mt-[0.45rem]" />
                       {point}
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={0.15}>
+          <h3 className="text-base font-semibold mb-4 flex items-center gap-2">
+            <GraduationCap size={18} className="text-accent" />
+            Founder&apos;s education
+          </h3>
+          <div className="relative border-l border-border-subtle ml-1.5 space-y-6">
+            {education.map((item) => (
+              <div key={item.title} className="relative pl-6">
+                <span
+                  className={`absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full border-2 border-bg-primary ${
+                    item.current ? 'bg-accent-2' : 'bg-border-subtle'
+                  }`}
+                />
+                <div className="flex items-center gap-2 flex-wrap">
+                  <p className="font-medium">{item.title}</p>
+                  {item.current && (
+                    <span className="px-2 py-0.5 rounded-full text-[11px] text-accent-2 border border-accent-2/30 bg-accent-2/10">
+                      Ongoing
+                    </span>
+                  )}
+                </div>
+                {item.org && <p className="text-sm text-text-secondary">{item.org}</p>}
+                {item.grade && <p className="mt-0.5 text-sm text-text-primary/90">Grade: {item.grade}</p>}
+                {item.note && (
+                  <p className="mt-1.5 text-sm text-text-secondary leading-relaxed">{item.note}</p>
+                )}
+                {!item.current && (
+                  <p className="text-xs font-mono text-text-secondary/70 mt-1">{item.period}</p>
+                )}
+              </div>
             ))}
           </div>
-
-          {/* Education */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-              <GraduationCap size={18} className="text-accent" />
-              Education
-            </h3>
-            <div className="space-y-4">
-              {education.map((item) => (
-                <div
-                  key={item.title}
-                  className={`p-4 rounded-xl bg-bg-secondary border-2 pixel-shadow ${
-                    item.current ? 'border-accent-2/60' : 'border-border-subtle'
-                  }`}
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <p className="font-medium">{item.title}</p>
-                    {item.current && (
-                      <span className="shrink-0 px-2 py-0.5 text-xs font-mono neon-cyan border border-accent-2/50">
-                        NOW<span className="cursor-blink">_</span>
-                      </span>
-                    )}
-                  </div>
-                  {item.org && <p className="text-sm text-text-secondary">{item.org}</p>}
-                  {item.grade && (
-                    <p className="mt-1 text-sm text-text-primary">Grade: {item.grade}</p>
-                  )}
-                  {item.note && (
-                    <p className="mt-2 text-sm text-text-secondary leading-relaxed">{item.note}</p>
-                  )}
-                  <p className="text-xs font-mono text-accent mt-1">{item.period}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+        </Reveal>
       </div>
-    </section>
+    </Section>
   );
 }
