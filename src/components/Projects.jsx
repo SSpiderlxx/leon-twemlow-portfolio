@@ -36,7 +36,7 @@ export default function Projects() {
                 </span>
                 <span
                   className={`px-2.5 py-0.5 rounded-full text-xs border ${
-                    statusTone[project.status] || 'text-text-secondary border-border-subtle bg-white/[0.03]'
+                    statusTone[project.status] || 'text-text-secondary border-border-subtle bg-tint/[0.03]'
                   }`}
                 >
                   {project.status}
