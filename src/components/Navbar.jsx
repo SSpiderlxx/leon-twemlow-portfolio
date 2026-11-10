@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, NavLink, useLocation } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -54,28 +55,32 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `px-3 py-2 rounded-lg text-sm transition-colors ${
                   isActive
-                    ? 'text-text-primary bg-white/[0.06]'
-                    : 'text-text-secondary hover:text-text-primary hover:bg-white/[0.04]'
+                    ? 'text-text-primary bg-tint/[0.06]'
+                    : 'text-text-secondary hover:text-text-primary hover:bg-tint/[0.04]'
                 }`
               }
             >
               {link.label}
             </NavLink>
           ))}
-          <Link to="/contact" className="btn-primary ml-3 py-2! px-4! text-sm!">
+          <ThemeToggle className="ml-1" />
+          <Link to="/contact" className="btn-primary ml-2 py-2! px-4! text-sm!">
             Start a project
             <ArrowUpRight size={15} />
           </Link>
         </div>
 
+        <div className="md:hidden flex items-center gap-1 -mr-2">
+        <ThemeToggle />
         <button
-          className="md:hidden -mr-2 p-2 text-text-primary"
+          className="p-2 text-text-primary"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
           aria-expanded={open}
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
+        </div>
       </div>
 
       <AnimatePresence>

@@ -52,7 +52,7 @@ export default function Work({ first = false }) {
               onClick={() => setActive(t.id)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 active === t.id
-                  ? 'bg-white/[0.08] text-text-primary'
+                  ? 'bg-tint/[0.08] text-text-primary'
                   : 'text-text-secondary hover:text-text-primary'
               }`}
             >

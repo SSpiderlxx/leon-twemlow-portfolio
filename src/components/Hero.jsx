@@ -10,7 +10,7 @@ const fade = (delay = 0) => ({
 
 const proof = [
   { icon: <Gamepad2 size={15} />, label: 'Commercial game on Steam' },
-  { icon: <ShoppingBag size={15} />, label: '4 Unity Asset Store tools' },
+  { icon: <ShoppingBag size={15} />, label: '5 Unity Asset Store tools' },
   { icon: <Clock size={15} />, label: '5+ years shipping software' },
   { icon: <MapPin size={15} />, label: 'UK-based, working remotely' },
 ];
@@ -24,7 +24,7 @@ export default function Hero() {
       <div className="relative max-w-6xl mx-auto grid lg:grid-cols-[1.1fr_1fr] gap-14 lg:gap-12 items-center">
         <div>
           <motion.div {...fade(0)}>
-            <span className="inline-flex items-center gap-2.5 pl-3 pr-3.5 py-1.5 rounded-full border border-border-subtle bg-white/[0.03] text-sm text-text-secondary">
+            <span className="inline-flex items-center gap-2.5 pl-3 pr-3.5 py-1.5 rounded-full border border-border-subtle bg-tint/[0.03] text-sm text-text-secondary">
               <span className="status-dot" />
               Taking on new client projects
             </span>
@@ -74,9 +74,9 @@ export default function Hero() {
           <div className="absolute -inset-6 bg-accent/20 blur-3xl rounded-full opacity-40 pointer-events-none" />
           <div className="relative rounded-2xl border border-border-subtle bg-bg-secondary p-2 shadow-2xl shadow-black/60">
             <div className="flex items-center gap-1.5 px-3 py-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
-              <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
-              <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
+              <span className="w-2.5 h-2.5 rounded-full bg-tint/15" />
+              <span className="w-2.5 h-2.5 rounded-full bg-tint/15" />
+              <span className="w-2.5 h-2.5 rounded-full bg-tint/15" />
               <span className="ml-3 text-xs font-mono text-text-secondary/80 truncate">
                 raymarch-voxel-engine / unity 6 urp
               </span>

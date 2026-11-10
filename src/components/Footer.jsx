@@ -44,7 +44,7 @@ export default function Footer() {
               href={s.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-white/[0.05] transition-colors"
+              className="p-2.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-tint/[0.05] transition-colors"
               title={s.title}
               aria-label={s.title}
             >

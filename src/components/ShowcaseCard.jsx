@@ -237,7 +237,7 @@ export default function ShowcaseCard({ game, index }) {
                 {game.status}
               </span>
               {game.price && (
-                <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-white/[0.04] text-text-secondary border border-border-subtle">
+                <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-tint/[0.04] text-text-secondary border border-border-subtle">
                   {game.price}
                 </span>
               )}
