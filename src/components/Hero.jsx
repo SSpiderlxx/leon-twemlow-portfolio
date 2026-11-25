@@ -34,7 +34,7 @@ export default function Hero() {
             {...fade(0.08)}
             className="mt-6 text-[2.5rem] leading-[1.05] sm:text-6xl lg:text-[4.25rem] font-semibold"
           >
-            We build software &amp; tools{' '}
+            I build software &amp; tools{' '}
             <span className="text-gradient">that ship.</span>
           </motion.h1>
 
@@ -43,7 +43,7 @@ export default function Hero() {
             className="mt-6 text-lg text-text-secondary max-w-xl leading-relaxed"
           >
             Custom software and developer tools in C#, C++ and Unity, from desktop utilities
-            and editor extensions to rendering and gameplay systems. We take projects from idea
+            and editor extensions to rendering and gameplay systems. I take projects from idea
             to release, with clean, documented code you can build on.
           </motion.p>
 
@@ -52,7 +52,7 @@ export default function Hero() {
               Start a project <ArrowRight size={16} />
             </Link>
             <Link to="/work" className="btn-secondary">
-              See our work
+              See my work
             </Link>
           </motion.div>
 

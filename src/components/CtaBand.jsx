@@ -4,7 +4,7 @@ import { Reveal } from './Section';
 
 export default function CtaBand({
   title = 'Have a project in mind?',
-  body = "Tell us what you're building and we'll let you know honestly how we'd approach it.",
+  body = "Tell me what you're building and I'll let you know honestly how I'd approach it.",
 }) {
   return (
     <section className="px-4 sm:px-6 pb-20 sm:pb-28">

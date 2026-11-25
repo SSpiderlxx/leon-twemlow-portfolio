@@ -22,7 +22,7 @@ export default function Reviews() {
       <SectionHeader
         eyebrow="Reviews"
         title="What customers say"
-        description="Verified reviews from developers using our tools on the Unity Asset Store."
+        description="Verified reviews from developers using my tools on the Unity Asset Store."
       />
 
       <div className="mt-12 grid md:grid-cols-3 gap-4 sm:gap-5">
