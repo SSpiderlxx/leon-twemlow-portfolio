@@ -12,7 +12,7 @@ const services = [
   {
     icon: <Wrench size={20} />,
     title: 'Tools & editor extensions',
-    body: 'Custom Unity editor tooling that saves your team hours every week, built to the same standard as our Asset Store products.',
+    body: 'Custom Unity editor tooling that saves your team hours every week, built to the same standard as my Asset Store products.',
     points: ['Custom inspectors & windows', 'Content & level pipelines', 'Reusable frameworks', 'Documentation included'],
   },
   {
@@ -35,15 +35,15 @@ export default function Services({ first = false }) {
       <SectionHeader
         level={first ? 1 : 2}
         eyebrow="Services"
-        title="How we can help"
-        description="Bring us in for a single tool, a feature, or a whole project. We work on fixed-scope projects or ongoing contracts, and we're happy to slot into an existing codebase."
+        title="How I can help"
+        description="Bring me in for a single tool, a feature, or a whole project. I work on fixed-scope projects or ongoing contracts, and I'm happy to slot into an existing codebase."
         action={
           !first && (
             <Link
               to="/services"
               className="inline-flex items-center gap-1.5 text-sm text-text-secondary hover:text-text-primary transition-colors"
             >
-              How we work <ArrowRight size={14} />
+              How I work <ArrowRight size={14} />
             </Link>
           )
         }

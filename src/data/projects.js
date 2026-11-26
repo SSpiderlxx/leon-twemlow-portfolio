@@ -239,7 +239,7 @@ export const projects = [
     tagline: 'Raymarched Voxel Game Engine in C++ & Vulkan',
     category: 'engine',
     status: 'In Development',
-    description: 'A standalone raymarched voxel game engine written in C++ on Vulkan, built on the rendering and simulation technology behind our Unity Raymarch Voxel Engine.',
+    description: 'A standalone raymarched voxel game engine written in C++ on Vulkan, built on the rendering and simulation technology behind my Unity Raymarch Voxel Engine.',
     features: [],
     techStack: ['C++', 'Vulkan', 'Raymarching', 'Voxel Rendering'],
     links: {},

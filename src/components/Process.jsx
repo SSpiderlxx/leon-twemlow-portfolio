@@ -25,9 +25,9 @@ const steps = [
 ];
 
 const values = [
-  { icon: <ShieldCheck size={18} />, title: 'End-to-end ownership', body: 'We take products from idea to release, then support and update them.' },
-  { icon: <Gauge size={18} />, title: 'Performance first', body: 'Jobs, Burst, compute shaders and profiling are part of how we work, not an afterthought.' },
-  { icon: <BookOpen size={18} />, title: 'Documented code', body: 'Readable, well-structured C# your team can maintain after we hand it over.' },
+  { icon: <ShieldCheck size={18} />, title: 'End-to-end ownership', body: 'I take products from idea to release, then support and update them.' },
+  { icon: <Gauge size={18} />, title: 'Performance first', body: 'Jobs, Burst, compute shaders and profiling are part of how I work, not an afterthought.' },
+  { icon: <BookOpen size={18} />, title: 'Documented code', body: 'Readable, well-structured C# your team can maintain after I hand it over.' },
   { icon: <Handshake size={18} />, title: 'Clear communication', body: 'Straight answers on scope, timelines and trade-offs, with no surprises.' },
 ];
 

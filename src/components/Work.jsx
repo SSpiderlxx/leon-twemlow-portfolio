@@ -9,13 +9,13 @@ const tabs = [
     id: 'tools',
     label: 'Unity tools',
     items: assetStoreProducts,
-    note: 'Commercial developer tools we design, build, ship and support on the Unity Asset Store.',
+    note: 'Commercial developer tools I design, build, ship and support on the Unity Asset Store.',
   },
   {
     id: 'games',
     label: 'Games',
     items: projects.filter((p) => p.category === 'game'),
-    note: 'Games we\'ve shipped independently or contributed to under contract.',
+    note: 'Games I\'ve shipped independently or contributed to under contract.',
   },
 ];
 

@@ -13,19 +13,19 @@ export default function About({ first = false }) {
     <Section first={first} id="about" className="bg-bg-secondary/40 border-y border-border-subtle/60">
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
         <div>
-          <SectionHeader eyebrow="About" title="Who we are" level={first ? 1 : 2} />
+          <SectionHeader eyebrow="About" title="Who I am" level={first ? 1 : 2} />
           <Reveal delay={0.08}>
             <p className="mt-6 text-text-secondary leading-relaxed text-lg">
-              twemlow.dev is a software studio founded by Leon Twemlow, built on 5+ years of
+              I&apos;m Leon Twemlow, the developer behind twemlow.dev, with 5+ years of
               hands-on experience creating commercial games, reusable developer tools and custom
               engine systems.
             </p>
             <p className="mt-4 text-text-secondary leading-relaxed">
-              We develop and ship our own games and{' '}
+              I develop and ship my own games and{' '}
               <span className="text-text-primary">Unity Asset Store</span> products, owning
               everything from engineering and optimisation to release, documentation, analytics
-              and customer support. That same end-to-end mindset is what we bring to client work.
-              Our strengths are C# and C++, gameplay architecture, graphics and rendering, AI and
+              and customer support. That same end-to-end mindset is what I bring to client work.
+              My strengths are C# and C++, gameplay architecture, graphics and rendering, AI and
               performance.
             </p>
           </Reveal>

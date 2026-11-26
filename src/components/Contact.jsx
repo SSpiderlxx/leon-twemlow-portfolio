@@ -43,9 +43,9 @@ export default function Contact({ first = false }) {
                 <p className="eyebrow">Contact</p>
                 <Heading className="section-heading mt-3">Have a project in mind?</Heading>
                 <p className="mt-4 text-text-secondary leading-relaxed max-w-lg">
-                  Tell us what you&apos;re building. Whether it&apos;s a custom tool, a piece of software
-                  or a Unity feature, we&apos;ll let you know honestly if we&apos;re the right fit
-                  and how we&apos;d approach it.
+                  Tell me what you&apos;re building. Whether it&apos;s a custom tool, a piece of software
+                  or a Unity feature, I&apos;ll let you know honestly if I&apos;m the right fit
+                  and how I&apos;d approach it.
                 </p>
 
                 <div className="mt-8 flex flex-col sm:flex-row gap-3">
